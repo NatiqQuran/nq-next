@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@yakad/ui": "1.2.84-beta",
-    "@yakad/x": "1.0.26-beta",
+    "@yakad/ui": "1.2.70-beta",
+    "@yakad/x": "1.0.20-beta",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18"
