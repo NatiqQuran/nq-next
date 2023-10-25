@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Page, Main, AppBar, Button, Row, Footer } from "@yakad/ui";
-import { Xbackground, Xgetstart } from "@yakad/x";
+import { Xbackground, XgetStart } from "@yakad/x";
 import LogoIcon from "./logoicon";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       </AppBar>
       <Main>
         <Xbackground>
-          <Xgetstart logo={<LogoIcon />}>
+          <XgetStart logo={<LogoIcon />}>
             <h1
               style={{
                 fontFamily: "Hafs",
@@ -59,7 +59,7 @@ export default function Home() {
             >
               Learn More!
             </a>
-          </Xgetstart>
+          </XgetStart>
         </Xbackground>
       </Main>
       <Footer>
