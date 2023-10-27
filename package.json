@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@yakad/ui": "1.2.85-beta",
-    "@yakad/x": "1.0.27-beta",
+    "@yakad/ui": "1.2.91-beta",
+    "@yakad/x": "1.0.32-beta",
     "next": "13.5.4",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.0.24",
     "@types/react-dom": "^18",
     "autoprefixer": "^10",
     "eslint": "^8",
