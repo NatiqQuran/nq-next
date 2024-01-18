@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Natiq",
   description: "Natiq main app",
+  manifest: "/api/manifest"
 };
 
 export default function RootLayout({ children }: { children: any }) {
