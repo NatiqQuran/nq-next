@@ -1,10 +1,7 @@
-import { Theme } from "@yakad/ui";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Theme } from "@yakad/ui";
 
 export const runtime = "edge";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Natiq",
