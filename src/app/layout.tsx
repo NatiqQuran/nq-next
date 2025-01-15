@@ -8,7 +8,11 @@ export const metadata: Metadata = {
     description: "Natiq main app",
 };
 
-export default function RootLayout({ children }: { children: any }) {
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
     return (
         <html lang="en">
             <head>
