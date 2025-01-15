@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <head>
+            <meta charset="utf-8" />
+            <link rel="icon" href="favicon.ico" />
+            <meta
+                name="viewport"
+                content="width=device-width, initial-scale=1"
+            />
+            <meta name="theme-color" content="#222222" />
+            <meta name="description" content="Natiq Quran" />
+            <title>Natiq</title>
+            <style>
+                html,
+                body,
+                div,
+                iframe {
+                    width: 100%;
+                    height: 100%;
+                }
+                body {
+                    display: flex;
+                    margin: 0;
+                    background-color: #222222;
+                }
+                iframe {
+                    border: 0;
+                }
+            </style>
+        </head>
+    </head>
+    <body>
+        <div id="offline">
+            <iframe src="https://natiq.net"></iframe>
+        </div>
+        <div id="online"></div>
+        <script>
+            onlineMode(navigator.onLine);
+
+            addEventListener("online", (event) => {
+                confirm("You are now online, switch to online mode?") &&
+                    onlineMode(true);
+            });
+
+            function onlineMode(status) {
+                if (status) {
+                    document.getElementById("offline").style.display = "none";
+                    document.getElementById("online").style.display = "block";
+                    document.getElementById("online").innerHTML =
+                        '<iframe src="/"></iframe>';
+                } else {
+                    document.getElementById("offline").style.display = "block";
+                    document.getElementById("online").style.display = "none";
+                    document.getElementById("online").innerHTML = "";
+                }
+            }
+        </script>
+        <script>
+            if ("serviceWorker" in navigator) {
+                navigator.serviceWorker.register("../service-worker.js");
+                console.log("Service Worker registered.");
+            }
+        </script>
+    </body>
+</html>
