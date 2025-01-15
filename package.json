@@ -11,6 +11,7 @@
     "dependencies": {
         "@yakad/ui": "1.2.198-beta",
         "@yakad/x": "1.0.114-beta",
+        "@yakad/symbols": "1.0.17",
         "next": "15.1.4",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
