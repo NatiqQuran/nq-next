@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Theme } from "@yakad/ui";
+import "./globals.css";
 
 export const runtime = "edge";
 
