@@ -3,7 +3,7 @@
     <head>
         <head>
             <title>Natiq PWA</title>
-            <meta name="description" content="Natiq Quran PWA" />
+            <meta name="description" content="Natiq PWA" />
             <link rel="icon" href="favicon.ico" />
             <meta charset="utf-8" />
             <meta
@@ -14,7 +14,6 @@
             <style>
                 html,
                 body,
-                div.app,
                 iframe {
                     width: 100%;
                     height: 100%;
@@ -22,73 +21,11 @@
                     margin: 0;
                     overflow: hidden;
                 }
-                body {
-                    display: flex;
-                    flex-direction: column;
-                    margin: 0;
-                }
-                #message {
-                    display: none;
-                    width: 100%;
-                    height: 24px;
-                    line-height: 24px;
-                    font-family: Arial, Helvetica, sans-serif;
-                    font-size: 15px;
-                    font-weight: bold;
-                    text-align: center;
-                    color: #222;
-                    cursor: pointer;
-                }
-                body.message div.app {
-                    height: calc(100% - 24px);
-                }
-                body.message #message {
-                    display: block;
-                }
             </style>
         </head>
     </head>
     <body>
-        <div id="message" onclick="location.reload()"></div>
-        <div class="app" id="offline">
-            <iframe src="https://offline.natiq.net"></iframe>
-        </div>
-        <div class="app" id="online"></div>
-        <script>
-            const isOnline = navigator.onLine;
-
-            if (isOnline) {
-                document.getElementById("offline").style.display = "none";
-                document.getElementById("online").style.display = "block";
-                document.getElementById("online").innerHTML =
-                    '<iframe src="/"></iframe>';
-            } else {
-                document.getElementById("offline").style.display = "block";
-                document.getElementById("online").style.display = "none";
-                document.getElementById("online").innerHTML = "";
-            }
-
-            if (!navigator.onLine) message("Offline mode", "#31c6ff");
-            addEventListener("online", (event) => {
-                !isOnline && message("Click to switch online mode", "#61ff57");
-                isOnline && hideMessage();
-            });
-            addEventListener("offline", (event) => {
-                !isOnline && message("Offline mode", "#31c6ff");
-                isOnline && message("Click to switch offline mode", "#ff4949");
-            });
-
-            function message(text, color) {
-                document.body.classList.add("message");
-                document.getElementById("message").innerHTML = text;
-                document.getElementById("message").style.backgroundColor =
-                    color;
-                console.log(text);
-            }
-            function hideMessage() {
-                document.body.classList.remove("message");
-            }
-        </script>
+        <iframe src="https://pwa.natiq.net/pwa"></iframe>
         <script>
             if ("serviceWorker" in navigator) {
                 navigator.serviceWorker.register("../service-worker.js");
