@@ -76,10 +76,13 @@ export function IntroAppBar() {
                     </List>
                 </DisplayOnScreen>
                 <Spacer />
-                <Link href="/search">
-                    <Button variant="outlined" icon={<Symbol icon="search" />}>
+                <Link href="https://offline.natiq.net">
+                    <Button
+                        variant="outlined"
+                        icon={<Symbol icon="offline_bolt" />}
+                    >
                         <DisplayOnScreen largerthan="xs">
-                            Search
+                            Offline mode
                         </DisplayOnScreen>
                     </Button>
                 </Link>
@@ -143,8 +146,9 @@ export function IntroGetStartBox() {
                     variant="filled"
                     size="medium"
                     style={{ margin: "auto" }}
+                    icon={<Symbol icon="offline_bolt" />}
                 >
-                    GET START
+                    Launch offline mode
                 </Button>
             </Link>
             <br />
