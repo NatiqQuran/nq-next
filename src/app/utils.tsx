@@ -13,6 +13,7 @@ import {
     Display,
     ClickOutsideListener,
     Footer,
+    Row,
 } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
@@ -135,25 +136,21 @@ const IntroGetStartBox = () => {
             >
                 Natiq Quran, Easy to use quran app.
             </p>
-            <Link href="https://offline.natiq.net">
-                <Button
-                    variant="filled"
-                    size="medium"
-                    style={{ margin: "auto" }}
-                    icon={<Symbol icon="offline_bolt" />}
-                >
-                    Launch offline mode
+            <Row align="center">
+                <Link href="/search" passHref>
+                    <Button variant="filled" icon={<Symbol icon="search" />}>
+                        Search
+                    </Button>
+                </Link>
+                <Button variant="filled" icon={<Symbol icon="history" />}>
+                    Last Read
                 </Button>
-            </Link>
+            </Row>
             <br />
             <p style={{ color: "#7d7d7d" }}>Suitable for all ages.</p>
             <span>
                 <a target="blank" href="https://blog.natiq.net/privacy-policy">
                     Privacy Policy
-                </a>
-                <span> . </span>
-                <a target="blank" href="https://blog.natiq.net">
-                    Read more
                 </a>
             </span>
         </>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { Button } from "@yakad/ui";
 
 const GoBackButton = () => {
     const router = useRouter();
@@ -9,7 +10,11 @@ const GoBackButton = () => {
         router.back();
     };
 
-    return <button onClick={handleGoBack}>Go Back</button>;
+    return (
+        <Button variant="outlined" onClick={handleGoBack}>
+            Go Back
+        </Button>
+    );
 };
 
 export default GoBackButton;
