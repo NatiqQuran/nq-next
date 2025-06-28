@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Theme } from "@yakad/ui";
-import "./globals.css";
 
 export const runtime = "edge";
 
@@ -27,7 +26,7 @@ export default function RootLayout({
                 <link rel="manifest" href="manifest.json" />
             </head>
             <body>
-                <Theme>{children}</Theme>
+                <Theme color="green">{children}</Theme>
             </body>
         </html>
     );
