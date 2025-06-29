@@ -10,9 +10,10 @@ import {
     Navigation,
     List,
     ListItem,
-    DisplayOnScreen,
-    ClickAwayListener,
+    Display,
+    ClickOutsideListener,
     Footer,
+    Row,
 } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
@@ -22,13 +23,12 @@ interface NavListItem {
     href: string;
     name: string;
 }
-
-export function IntroAppBar() {
+const IntroAppBar = () => {
     const [navOpen, setNavOpen] = useState<boolean>(false);
 
     const navListItems: NavListItem[] = [
         {
-            href: "search",
+            href: "/quran",
             name: "Quran",
         },
         {
@@ -40,12 +40,12 @@ export function IntroAppBar() {
     return (
         <>
             <AppBar>
-                <DisplayOnScreen smallerorequalto="md">
+                <Display maxWidth="md">
                     <Button
                         icon={<Symbol icon="menu" />}
                         onClick={() => setNavOpen(true)}
                     />
-                </DisplayOnScreen>
+                </Display>
                 <SvgIcon size={5}>
                     <LogoIcon />
                 </SvgIcon>
@@ -59,7 +59,7 @@ export function IntroAppBar() {
                 >
                     Natiq
                 </h1>
-                <DisplayOnScreen largerthan="md">
+                <Display minWidth="md">
                     <List>
                         {navListItems.map((item, index) => (
                             <ListItem key={index}>
@@ -74,20 +74,15 @@ export function IntroAppBar() {
                             </ListItem>
                         ))}
                     </List>
-                </DisplayOnScreen>
+                </Display>
                 <Spacer />
-                <Link href="https://offline.natiq.net">
-                    <Button
-                        variant="outlined"
-                        icon={<Symbol icon="offline_bolt" />}
-                    >
-                        <DisplayOnScreen largerthan="xs">
-                            Offline mode
-                        </DisplayOnScreen>
+                <Link href="/discover/search" passHref>
+                    <Button variant="outlined" icon={<Symbol icon="search" />}>
+                        <Display minWidth="xs">Search</Display>
                     </Button>
                 </Link>
             </AppBar>
-            <ClickAwayListener onclickaway={() => setNavOpen(false)}>
+            <ClickOutsideListener onclickoutside={() => setNavOpen(false)}>
                 <Navigation anchor="top" open={navOpen}>
                     <List direction="column" style={{ padding: "0 2rem" }}>
                         {navListItems.map((item, index) => (
@@ -106,12 +101,12 @@ export function IntroAppBar() {
                         ))}
                     </List>
                 </Navigation>
-            </ClickAwayListener>
+            </ClickOutsideListener>
         </>
     );
-}
+};
 
-export function IntroGetStartBox() {
+const IntroGetStartBox = () => {
     return (
         <>
             <h1
@@ -141,32 +136,28 @@ export function IntroGetStartBox() {
             >
                 Natiq Quran, Easy to use quran app.
             </p>
-            <Link href="https://offline.natiq.net">
-                <Button
-                    variant="filled"
-                    size="medium"
-                    style={{ margin: "auto" }}
-                    icon={<Symbol icon="offline_bolt" />}
-                >
-                    Launch offline mode
+            <Row align="center">
+                <Link href="/discover/home" passHref>
+                    <Button variant="filled" icon={<Symbol icon="home" />}>
+                        Open App
+                    </Button>
+                </Link>
+                <Button variant="filled" icon={<Symbol icon="history" />}>
+                    Last Read
                 </Button>
-            </Link>
+            </Row>
             <br />
             <p style={{ color: "#7d7d7d" }}>Suitable for all ages.</p>
             <span>
                 <a target="blank" href="https://blog.natiq.net/privacy-policy">
                     Privacy Policy
                 </a>
-                <span> . </span>
-                <a target="blank" href="https://blog.natiq.net">
-                    Read more
-                </a>
             </span>
         </>
     );
-}
+};
 
-export function IntroFooter() {
+const IntroFooter = () => {
     return (
         <Footer>
             <a target="blank" href="https://blog.natiq.net/privacy-policy">
@@ -187,4 +178,6 @@ export function IntroFooter() {
             </a>
         </Footer>
     );
-}
+};
+
+export { IntroAppBar, IntroGetStartBox, IntroFooter };
