@@ -1,32 +1,28 @@
-import { useNavigate } from "react-router-dom";
-import { Button } from "@yakad/ui";
+"use client";
 
-import { QuranConfigProps } from "routes/quran";
+import { forwardRef } from "react";
+import { useRouter } from "next/navigation";
 
-const LastReadingButton = () => {
-    const navigate = useNavigate();
+import { Button, ButtonProps } from "@yakad/ui";
 
-    const configFromLocalStorageString = localStorage.getItem("config");
-    const configFromLocalStorage: QuranConfigProps | null =
-        configFromLocalStorageString
-            ? JSON.parse(configFromLocalStorageString)
-            : null;
-
-    const handleClick = () => {
-        if (configFromLocalStorage) {
-            navigate("/quran/" + configFromLocalStorage.surahUUID);
-        }
-    };
+const LastReadingButton = forwardRef<
+    HTMLButtonElement,
+    Omit<ButtonProps, "onClick" | "disabled">
+>(({ children, ...restProps }, ref) => {
+    const router = useRouter();
 
     return (
         <Button
-            variant="filledtonal"
-            disabled={!Boolean(configFromLocalStorage)}
-            onClick={handleClick}
+            ref={ref}
+            {...restProps}
+            disabled //if last reading is not exist in local storage
+            onClick={() => router.push} //Do what you want
         >
-            Last reading
+            {children || "Last reading"}
         </Button>
     );
-};
+});
+
+LastReadingButton.displayName = "LastReadingButton";
 
 export default LastReadingButton;

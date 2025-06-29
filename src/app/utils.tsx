@@ -28,7 +28,7 @@ const IntroAppBar = () => {
 
     const navListItems: NavListItem[] = [
         {
-            href: "search",
+            href: "/quran",
             name: "Quran",
         },
         {
@@ -76,7 +76,7 @@ const IntroAppBar = () => {
                     </List>
                 </Display>
                 <Spacer />
-                <Link href="/search" passHref>
+                <Link href="/discover/search" passHref>
                     <Button variant="outlined" icon={<Symbol icon="search" />}>
                         <Display minWidth="xs">Search</Display>
                     </Button>
@@ -137,9 +137,9 @@ const IntroGetStartBox = () => {
                 Natiq Quran, Easy to use quran app.
             </p>
             <Row align="center">
-                <Link href="/search" passHref>
-                    <Button variant="filled" icon={<Symbol icon="search" />}>
-                        Search
+                <Link href="/discover/home" passHref>
+                    <Button variant="filled" icon={<Symbol icon="home" />}>
+                        Open App
                     </Button>
                 </Link>
                 <Button variant="filled" icon={<Symbol icon="history" />}>

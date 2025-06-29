@@ -11,7 +11,7 @@
     "dependencies": {
         "@ntq/sdk": "1.1.39",
         "@yakad/lib": "1.0.11",
-        "@yakad/symbols": "1.0.20",
+        "@yakad/symbols": "^1.0.20",
         "@yakad/ui": "1.3.31",
         "@yakad/x": "1.1.8",
         "next": "15.1.4",

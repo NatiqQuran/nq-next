@@ -4,7 +4,7 @@ import { Xbackground, XgetStart } from "@yakad/x";
 import { IntroAppBar, IntroFooter, IntroGetStartBox } from "./utils";
 import LogoIcon from "./logoicon";
 
-const IntroPage = () => (
+const Page = () => (
     <Screen>
         <IntroAppBar />
         <Main>
@@ -18,4 +18,4 @@ const IntroPage = () => (
     </Screen>
 );
 
-export default IntroPage;
+export default Page;

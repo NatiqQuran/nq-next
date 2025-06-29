@@ -11,8 +11,8 @@ import {
 } from "@yakad/ui";
 
 // import RandomSurahButton from "../../components/randomSurahButton";
-import GoToSurahButton from "../../components/goToSurahButton";
-import SurahPeriodIcon from "../../components/surahPeriodIcon";
+import GoToSurahButton from "../../../components/goToSurahButton";
+import SurahPeriodIcon from "../../../components/surahPeriodIcon";
 import Link from "next/link";
 
 const RelatedSurahs = (props: { surahList: SurahListResponseData }) => (

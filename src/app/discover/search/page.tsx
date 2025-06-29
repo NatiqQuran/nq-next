@@ -4,19 +4,20 @@ import React, { useState, useEffect } from "react";
 import { SurahListResponseData } from "@ntq/sdk";
 import { filterArrayBySearch } from "@yakad/lib";
 import {
-    AppBar,
     InputField,
     Container,
-    Main,
-    Screen,
     Loading,
+    Row,
+    Spacer,
+    Button,
+    AppBar,
 } from "@yakad/ui";
 
 import { RelatedSurahs, SearchResult } from "./utils";
-import { controllerSurah } from "../../connection";
-import GoBackButton from "@/components/goBackButton";
+import { controllerSurah } from "../../../connection";
+import Symbol from "@yakad/symbols";
 
-const SearchPage: React.FC = () => {
+const Page: React.FC = () => {
     const [surahList, setSurahList] = useState<SurahListResponseData | null>(
         null
     );
@@ -49,8 +50,18 @@ const SearchPage: React.FC = () => {
     };
 
     return (
-        <Screen>
-            <AppBar style={{ flexWrap: "nowrap" }}>
+        <>
+            <AppBar>
+                <Container size="md">
+                    <Row>
+                        <h1>Search</h1>
+                        <Spacer />
+                        <Button icon={<Symbol icon="mic" />} />
+                        <Button icon={<Symbol icon="camera" />} />
+                    </Row>
+                </Container>
+            </AppBar>
+            <Container size="md">
                 <InputField
                     boxsize="small"
                     placeholder="Search Surah by Name or Number"
@@ -58,23 +69,20 @@ const SearchPage: React.FC = () => {
                         filterBySearchInputOnChange(e.target.value);
                     }}
                 />
-                <GoBackButton />
-            </AppBar>
-            <Main>
-                {surahList ? (
-                    <Container size="md" style={{ marginTop: "2rem" }}>
-                        <RelatedSurahs surahList={surahList} />
-                        {/* {!isSearching && (
+            </Container>
+            {surahList ? (
+                <Container size="md" style={{ marginTop: "2rem" }}>
+                    <RelatedSurahs surahList={surahList} />
+                    {/* {!isSearching && (
                             <RelatedSurahs surahList={surahList} />
                         )} */}
-                        <SearchResult surahList={filteredSurahList} />
-                    </Container>
-                ) : (
-                    <Loading />
-                )}
-            </Main>
-        </Screen>
+                    <SearchResult surahList={filteredSurahList} />
+                </Container>
+            ) : (
+                <Loading />
+            )}
+        </>
     );
 };
 
-export default SearchPage;
+export default Page;
