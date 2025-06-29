@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Theme } from "@yakad/ui";
-import "./globals.css";
 
 export const runtime = "edge";
 
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
     description: "Natiq main app",
 };
 
-export default function RootLayout({
+function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
@@ -27,8 +26,10 @@ export default function RootLayout({
                 <link rel="manifest" href="manifest.json" />
             </head>
             <body>
-                <Theme>{children}</Theme>
+                <Theme color="green">{children}</Theme>
             </body>
         </html>
     );
 }
+
+export default Layout;
