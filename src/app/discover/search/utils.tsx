@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { SurahListResponseItem, SurahListResponseData } from "@ntq/sdk";
 import {
     GridContainer,
@@ -12,8 +13,6 @@ import {
 
 // import RandomSurahButton from "../../components/randomSurahButton";
 import GoToSurahButton from "../../../components/goToSurahButton";
-import SurahPeriodIcon from "../../../components/surahPeriodIcon";
-import Link from "next/link";
 
 const RelatedSurahs = (props: { surahList: SurahListResponseData }) => (
     <Row style={{ marginTop: "2rem" }} overflow="scroll">
