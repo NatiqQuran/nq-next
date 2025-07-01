@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 
 import styles from "./popup.module.css";
-import { Card, CardProps } from "@yakad/ui";
+import { Card, CardProps, ClickOutsideListener } from "@yakad/ui";
 
 export interface PopupProps extends CardProps {
     title?: string;
@@ -17,10 +17,20 @@ const Popup = forwardRef<HTMLDivElement, PopupProps>(
 
         return (
             isVisible && (
-                <div className={styles.popupscreen} onClick={hidePopup}>
-                    <Card ref={ref} {...restProps} className={styles.popup}>
-                        {children}
-                    </Card>
+                <div className={styles.popupscreen}>
+                    <ClickOutsideListener
+                        onclickoutside={hidePopup}
+                        className={styles.popup}
+                    >
+                        <Card
+                            ref={ref}
+                            {...restProps}
+                            className={styles.popup}
+                            style={{ overflow: "auto" }}
+                        >
+                            {children}
+                        </Card>
+                    </ClickOutsideListener>
                 </div>
             )
         );

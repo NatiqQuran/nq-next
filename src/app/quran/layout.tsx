@@ -11,19 +11,25 @@ import {
     Row,
     Screen,
     Spacer,
-    Stack,
 } from "@yakad/ui";
 import GoBackButton from "@/components/goBackButton";
-import Popup from "../ui/popup/popup";
+import FindPopup from "./popupFind";
+import MorePopup from "./popupMore";
+import PlayOptionsPopup from "./popupPlayOptions";
+import MushafOptionsPopup from "./popupMushafOptions";
 
 function Layout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const [isFindPopupVisible, setIsFindPopupVisible] =
+        useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
         useState<boolean>(false);
-    const [isFindPopupVisible, setIsFindPopupVisible] =
+    const [isPlayOptionsPopupVisible, setIsPlayOptionsPopupVisible] =
+        useState<boolean>(false);
+    const [isMushafOptionsPopupVisible, setIsMushafOptionsPopupVisible] =
         useState<boolean>(false);
 
     return (
@@ -31,7 +37,10 @@ function Layout({
             <AppBar style={{ flexWrap: "nowrap" }}>
                 <Container size="md">
                     <Row>
-                        <GoBackButton icon={<Symbol icon="arrow_back" />} />
+                        <GoBackButton
+                            title="Go back"
+                            icon={<Symbol icon="arrow_back" />}
+                        />
                         <Spacer />
                         <Button
                             title="Find"
@@ -41,49 +50,17 @@ function Layout({
                         >
                             Al-Fatihah:4
                         </Button>
-                        <Popup
-                            isVisible={isFindPopupVisible}
-                            setIsVisible={setIsFindPopupVisible}
-                        >
-                            <Row style={{ marginBottom: "2rem" }}>
-                                <h3 style={{ margin: 0 }}>Find</h3>
-                                <Spacer />
-                                <Button
-                                    title="Close"
-                                    icon={<Symbol icon="close" />}
-                                    onClick={() => setIsFindPopupVisible(false)}
-                                />
-                            </Row>
-                            <Stack align="center" style={{ flexGrow: 1 }}>
-                                Find Surah Ayyah Page Juz Hizb
-                            </Stack>
-                        </Popup>
                         <Spacer />
+                        <Button
+                            title="Mushaf Options"
+                            icon={<Symbol icon="settings" />}
+                            onClick={() => setIsMushafOptionsPopupVisible(true)}
+                        />
                         <Button
                             title="More"
                             icon={<Symbol icon="more_vert" />}
                             onClick={() => setIsMorePopupVisible(true)}
                         />
-                        <Popup
-                            isVisible={isMorePopupVisible}
-                            setIsVisible={setIsMorePopupVisible}
-                            align="center"
-                        >
-                            <h1>Al-Fatihah:4</h1>
-                            <Stack align="center" style={{ flexGrow: 1 }}>
-                                <Button>Share</Button>
-                                <Button>Favorite</Button>
-                                <Button>Comment</Button>
-                                <Button>BookMark</Button>
-                                <Button>Tafsir</Button>
-                            </Stack>
-                            <Button
-                                variant="link"
-                                onClick={() => setIsMorePopupVisible(false)}
-                            >
-                                Close
-                            </Button>
-                        </Popup>
                     </Row>
                 </Container>
             </AppBar>
@@ -99,7 +76,8 @@ function Layout({
                     <Row style={{ justifyContent: "space-around" }}>
                         <Button
                             title="Options"
-                            icon={<Symbol icon="account_circle" />}
+                            icon={<Symbol icon="tune" />}
+                            onClick={() => setIsPlayOptionsPopupVisible(true)}
                         />
                         <Button
                             title="Previous Ayah"
@@ -120,10 +98,29 @@ function Layout({
                             title="Next Ayah"
                             icon={<Symbol icon="chevron_right" />}
                         />
-                        <Button icon={<Symbol icon="fullscreen" />} />
+                        <Button
+                            title="Fillscreen"
+                            icon={<Symbol icon="fullscreen" />}
+                        />
                     </Row>
                 </Container>
             </Footer>
+            <FindPopup
+                isVisible={isFindPopupVisible}
+                setIsVisible={setIsFindPopupVisible}
+            />
+            <MorePopup
+                isVisible={isMorePopupVisible}
+                setIsVisible={setIsMorePopupVisible}
+            />
+            <MushafOptionsPopup
+                isVisible={isMushafOptionsPopupVisible}
+                setIsVisible={setIsMushafOptionsPopupVisible}
+            />
+            <PlayOptionsPopup
+                isVisible={isPlayOptionsPopupVisible}
+                setIsVisible={setIsPlayOptionsPopupVisible}
+            />
         </Screen>
     );
 }
