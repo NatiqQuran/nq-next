@@ -7,7 +7,16 @@ const Player = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
     ({ ...restProps }, ref) => {
         return (
             <Link href="/quran" passHref>
-                <Footer ref={ref} {...restProps} style={{ opacity: "0.8" }}>
+                <Footer
+                    ref={ref}
+                    {...restProps}
+                    style={{
+                        opacity: "0.8",
+                        borderTop:
+                            "0.3rem solid rgb(var(--primaryColor,11 87 208))",
+                        height: "7rem",
+                    }}
+                >
                     <Container size="md">
                         <Row style={{ justifyContent: "space-around" }}>
                             <h3 style={{ margin: 0 }}>Al-Fatihah:4</h3>
