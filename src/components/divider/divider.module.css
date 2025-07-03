@@ -1,0 +1,21 @@
+.divider {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    font-size: 1.4rem;
+    background-color: color-mix(
+        in srgb,
+        rgb(var(--surfaceContainerHighestColor, 230 224 233)) 90%,
+        transparent
+    );
+    backdrop-filter: blur(0.3rem);
+    box-shadow: 18px -18px 0 2px rgb(var(--surfaceColor, 254 247 255)),
+        -18px -18px 0 2px rgb(var(--surfaceColor, 254 247 255));
+}
+
+.divider:hover {
+    cursor: pointer;
+}

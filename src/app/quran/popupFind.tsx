@@ -23,7 +23,7 @@ const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
                 <h3>By Surah:</h3>
                 <Row>
                     <Select placeholder="Surah">
-                        <option value="uuid">1 - Al-Fatihah</option>
+                        <option value="uuid">1. Al-Fatihah</option>
                     </Select>
                     <Select placeholder="Ayah">
                         <option value={1}>1</option>

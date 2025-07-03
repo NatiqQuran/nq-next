@@ -35,21 +35,14 @@ function Layout({
     return (
         <Screen>
             <AppBar style={{ flexWrap: "nowrap" }}>
-                <Container size="md">
+                <Container size="md" style={{ padding: 0 }}>
                     <Row>
                         <GoBackButton
                             title="Go back"
                             icon={<Symbol icon="arrow_back" />}
                         />
                         <Spacer />
-                        <Button
-                            title="Find"
-                            iconposition="end"
-                            icon={<Symbol icon="keyboard_arrow_down" />}
-                            onClick={() => setIsFindPopupVisible(true)}
-                        >
-                            Al-Fatihah:4
-                        </Button>
+                        <h1>Natiq</h1>
                         <Spacer />
                         <Button
                             title="Mushaf Options"
@@ -70,6 +63,8 @@ function Layout({
                     borderTop:
                         "0.3rem solid rgb(var(--primaryColor,11 87 208))",
                     height: "7rem",
+                    position: "sticky",
+                    bottom: 0,
                 }}
             >
                 <Container size="md">
@@ -86,6 +81,7 @@ function Layout({
                         {true ? (
                             <Button
                                 title="Play"
+                                variant="filled"
                                 icon={<Symbol icon="play_arrow" />}
                             />
                         ) : (
