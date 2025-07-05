@@ -3,13 +3,13 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button, Container, Footer, Main, Row, Screen } from "@yakad/ui";
-import Symbol from "@yakad/symbols";
+import Symbol, { IconCode } from "@yakad/symbols";
 
 import Player from "@/components/player";
 
 interface FooterLink {
     url: string;
-    icon: string;
+    icon: IconCode;
 }
 const footerLinks: FooterLink[] = [
     { url: "home", icon: "home" },
