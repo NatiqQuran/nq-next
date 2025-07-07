@@ -20,6 +20,7 @@ import {
     H6,
     P,
     Span,
+    Text,
 } from "@yakad/ui";
 
 import GoBackButton from "@/components/goBackButton";
@@ -41,28 +42,31 @@ const Page: React.FC = () => {
 
     return (
         <Screen>
-            <AppBar style={{ flexWrap: "nowrap" }} position="autohide" blur>
-                <Container size="md" style={{ padding: 0 }}>
-                    <Row>
-                        <GoBackButton
-                            title="Go back"
-                            icon={<Symbol icon="arrow_back" />}
-                        />
-                        <Spacer />
-                        <h1 style={{ margin: 0 }}>Natiq</h1>
-                        <Spacer />
-                        <Button
-                            title="Mushaf Options"
-                            icon={<Symbol icon="settings" />}
-                            onClick={() => setIsMushafOptionsPopupVisible(true)}
-                        />
-                        <Button
-                            title="More"
-                            icon={<Symbol icon="more_vert" />}
-                            onClick={() => setIsMorePopupVisible(true)}
-                        />
-                    </Row>
-                </Container>
+            <AppBar
+                position="scroll"
+                size="md"
+                blur
+                style={{ flexWrap: "nowrap" }}
+            >
+                <GoBackButton
+                    title="Go back"
+                    icon={<Symbol icon="arrow_back" />}
+                />
+                <Spacer />
+                <H1 variant="heading3" title="Natiq Quran">
+                    Natiq
+                </H1>
+                <Spacer />
+                <Button
+                    title="Mushaf Options"
+                    icon={<Symbol icon="settings" />}
+                    onClick={() => setIsMushafOptionsPopupVisible(true)}
+                />
+                <Button
+                    title="More"
+                    icon={<Symbol icon="more_vert" />}
+                    onClick={() => setIsMorePopupVisible(true)}
+                />
             </AppBar>
             <Main>
                 <Container size="md">
@@ -76,13 +80,14 @@ const Page: React.FC = () => {
                     />
                     <Container size="sm" align="center">
                         <Row>
-                            <h2 style={{ margin: 0, fontSize: "1.6rem" }}>
-                                1. Al-Fatihah
-                            </h2>
-                            <Spacer />
                             {/* <SurahPeriodIcon period="makki" /> */}
+                            <H2 title="Surah name" variant="heading6">
+                                1. Al-Fatihah
+                            </H2>
+                            <Spacer />
+                            <Text variant="heading6">5 Ayahs</Text>
                         </Row>
-                        <p>بسم الله الرحن الرحیم</p>
+                        <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
                     <Stack>
                         <h1>Hello Hello</h1>
@@ -127,47 +132,42 @@ const Page: React.FC = () => {
                 </Container>
             </Main>
             <Footer
+                position="sticky"
+                size="md"
+                blur
                 style={{
                     borderTop:
                         "0.3rem solid rgb(var(--primaryColor,11 87 208))",
                     height: "7rem",
+                    justifyContent: "space-evenly",
                 }}
-                position="sticky"
-                blur
             >
-                <Container size="md">
-                    <Row style={{ justifyContent: "space-around" }}>
-                        <Button
-                            title="Options"
-                            icon={<Symbol icon="tune" />}
-                            onClick={() => setIsPlayOptionsPopupVisible(true)}
-                        />
-                        <Button
-                            title="Previous Ayah"
-                            icon={<Symbol icon="chevron_left" />}
-                        />
-                        {true ? (
-                            <Button
-                                title="Play"
-                                variant="filled"
-                                icon={<Symbol icon="play_arrow" />}
-                            />
-                        ) : (
-                            <Button
-                                title="Pause"
-                                icon={<Symbol icon="pause" />}
-                            />
-                        )}
-                        <Button
-                            title="Next Ayah"
-                            icon={<Symbol icon="chevron_right" />}
-                        />
-                        <Button
-                            title="Fillscreen"
-                            icon={<Symbol icon="fullscreen" />}
-                        />
-                    </Row>
-                </Container>
+                <Button
+                    title="Options"
+                    icon={<Symbol icon="tune" />}
+                    onClick={() => setIsPlayOptionsPopupVisible(true)}
+                />
+                <Button
+                    title="Previous Ayah"
+                    icon={<Symbol icon="chevron_left" />}
+                />
+                {true ? (
+                    <Button
+                        title="Play"
+                        variant="filled"
+                        icon={<Symbol icon="play_arrow" />}
+                    />
+                ) : (
+                    <Button title="Pause" icon={<Symbol icon="pause" />} />
+                )}
+                <Button
+                    title="Next Ayah"
+                    icon={<Symbol icon="chevron_right" />}
+                />
+                <Button
+                    title="Fillscreen"
+                    icon={<Symbol icon="fullscreen" />}
+                />
             </Footer>
             <FindPopup
                 isVisible={isFindPopupVisible}

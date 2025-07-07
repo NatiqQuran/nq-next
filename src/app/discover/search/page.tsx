@@ -10,12 +10,12 @@ import {
     Row,
     Spacer,
     Button,
-    AppBar,
+    H1,
 } from "@yakad/ui";
+import Symbol from "@yakad/symbols";
 
 import { RelatedSurahs, SearchResult } from "./utils";
 import { controllerSurah } from "../../../connection";
-import Symbol from "@yakad/symbols";
 
 const Page: React.FC = () => {
     const [surahList, setSurahList] = useState<SurahListResponseData | null>(
@@ -51,17 +51,13 @@ const Page: React.FC = () => {
 
     return (
         <>
-            <AppBar>
-                <Container size="md">
-                    <Row>
-                        <h1>Search</h1>
-                        <Spacer />
-                        <Button icon={<Symbol icon="mic" />} />
-                        <Button icon={<Symbol icon="camera" />} />
-                    </Row>
-                </Container>
-            </AppBar>
             <Container size="md">
+                <Row>
+                    <H1 variant="heading3">Search</H1>
+                    <Spacer />
+                    <Button icon={<Symbol icon="mic" />} />
+                    <Button icon={<Symbol icon="camera" />} />
+                </Row>
                 <InputField
                     boxsize="small"
                     placeholder="Search Surah by Name or Number"

@@ -1,17 +1,17 @@
+"use client";
+
 import React from "react";
-import { AppBar, Container, Row, Spacer } from "@yakad/ui";
+import { Container, H1, Row, Spacer } from "@yakad/ui";
 
 const Page: React.FC = () => {
     return (
         <>
-            <AppBar>
-                <Container size="md">
-                    <Row>
-                        <h1>USERNAME</h1>
-                        <Spacer />
-                    </Row>
-                </Container>
-            </AppBar>
+            <Container size="md">
+                <Row>
+                    <H1 variant="heading3">USERNAME</H1>
+                    <Spacer />
+                </Row>
+            </Container>
             <Container size="md"></Container>
         </>
     );
