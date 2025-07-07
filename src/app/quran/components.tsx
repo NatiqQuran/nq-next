@@ -48,7 +48,7 @@ export const FindBar = forwardRef<HTMLDivElement, FindBarProps>(
                     padding: "1rem 2.5rem",
                     fontSize: "1.4rem",
                     boxShadow:
-                        "1.8rem -3.6rem 0 1.8rem rgb(var(--surfaceColor, 254 247 255)), -1.8rem -3.6rem 0 1.8rem rgb(var(--surfaceColor, 254 247 255))",
+                        "1.8rem -2rem 0 0.6rem rgb(var(--surfaceColor, 254 247 255)), -1.8rem -2rem 0 0.6rem rgb(var(--surfaceColor, 254 247 255))",
                     transition: "top 0.3s ease",
                     willChange: "top",
                     zIndex: "1",

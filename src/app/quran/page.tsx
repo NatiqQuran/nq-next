@@ -12,6 +12,14 @@ import {
     Screen,
     Stack,
     Spacer,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    P,
+    Span,
 } from "@yakad/ui";
 
 import GoBackButton from "@/components/goBackButton";
@@ -33,7 +41,7 @@ const Page: React.FC = () => {
 
     return (
         <Screen>
-            <AppBar style={{ flexWrap: "nowrap" }} sticky autohide>
+            <AppBar style={{ flexWrap: "nowrap" }} position="autohide" blur>
                 <Container size="md" style={{ padding: 0 }}>
                     <Row>
                         <GoBackButton
@@ -57,7 +65,7 @@ const Page: React.FC = () => {
                 </Container>
             </AppBar>
             <Main>
-                <Container size="md" style={{ padding: "2rem" }}>
+                <Container size="md">
                     <FindBar
                         surahnumber={1}
                         ayahnumber={1}
@@ -66,11 +74,7 @@ const Page: React.FC = () => {
                         hizb={2}
                         onClick={() => setIsFindPopupVisible(true)}
                     />
-                    <Container
-                        size="sm"
-                        align="center"
-                        style={{ padding: "2rem" }}
-                    >
+                    <Container size="sm" align="center">
                         <Row>
                             <h2 style={{ margin: 0, fontSize: "1.6rem" }}>
                                 1. Al-Fatihah
@@ -107,16 +111,18 @@ const Page: React.FC = () => {
                     </Stack>
                     <PageDivider pagenumber={3} />
                     <Stack>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
+                        <H1>H1. Default</H1>
+                        <H2>H2. Default</H2>
+                        <H3>H3. Default</H3>
+                        <H4>H4. Default</H4>
+                        <H5>H5. Default</H5>
+                        <H6>H6. Default</H6>
+                        <P variant="body1">P. Body1</P>
+                        <P variant="body2">P. Body2</P>
+                        <P variant="body3">P. Body3</P>
+                        <P variant="caption">P. Caption</P>
+                        <Span>Span. Default</Span>
+                        <Span variant="heading2">Span. Heading2</Span>
                     </Stack>
                 </Container>
             </Main>
@@ -126,7 +132,7 @@ const Page: React.FC = () => {
                         "0.3rem solid rgb(var(--primaryColor,11 87 208))",
                     height: "7rem",
                 }}
-                sticky
+                position="sticky"
                 blur
             >
                 <Container size="md">
