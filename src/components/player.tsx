@@ -1,37 +1,35 @@
 import { forwardRef } from "react";
 import Link from "next/link";
-import { Button, Container, Footer, FooterProps, Row, Spacer } from "@yakad/ui";
+import { Button, Card, FooterProps, Row, Spacer, Text } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
 const Player = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
     ({ ...restProps }, ref) => {
         return (
             <Link href="/quran" passHref>
-                <Footer
+                <Card
                     ref={ref}
                     {...restProps}
+                    blur
                     style={{
-                        opacity: "0.8",
-                        borderTop:
-                            "0.3rem solid rgb(var(--primaryColor,11 87 208))",
-                        height: "7rem",
+                        backgroundColor: `color-mix(
+                            in srgb,
+                            rgb(var(--surfaceContainerColor, 243 237 247)) 70%,
+                            transparent)`,
+
+                        padding: "0.5rem 3rem",
                     }}
                 >
-                    <Container size="md">
-                        <Row style={{ justifyContent: "space-around" }}>
-                            <h3 style={{ margin: 0 }}>Al-Fatihah:4</h3>
-                            <Spacer />
-                            <Button
-                                icon={
-                                    <Symbol type="outlined" icon="play_arrow" />
-                                }
-                            />
-                            <Button
-                                icon={<Symbol type="outlined" icon="close" />}
-                            />
-                        </Row>
-                    </Container>
-                </Footer>
+                    <Row style={{ minHeight: "6rem" }}>
+                        <div>
+                            <Text variant="heading6">Al-Fatihah:4</Text>
+                            <Text variant="caption">Abd Ol-Basit</Text>
+                        </div>
+                        <Spacer />
+                        <Button icon={<Symbol icon="play_arrow" />} />
+                        <Button icon={<Symbol icon="close" />} />
+                    </Row>
+                </Card>
             </Link>
         );
     }

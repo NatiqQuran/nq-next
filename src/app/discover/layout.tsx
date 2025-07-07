@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Button, Container, Footer, Main, Row, Screen } from "@yakad/ui";
+import { Button, Container, Footer, Main, Screen } from "@yakad/ui";
 import Symbol, { IconCode } from "@yakad/symbols";
 
 import Player from "@/components/player";
@@ -25,22 +25,28 @@ function Layout({ children }: { children: React.ReactNode }) {
     return (
         <Screen>
             <Main>{children}</Main>
-            <Player />
-            <Footer style={{ justifyContent: "space-around" }}>
-                <Container size="md">
-                    <Row style={{ justifyContent: "space-around" }}>
-                        {footerLinks.map(({ url, icon }) => (
-                            <Link key={url} href={`/discover/${url}`} passHref>
-                                <Button
-                                    icon={
-                                        <Symbol type="outlined" icon={icon} />
-                                    }
-                                    disabled={currentPage === url}
-                                />
-                            </Link>
-                        ))}
-                    </Row>
-                </Container>
+            <Container
+                size="md"
+                style={{
+                    position: "sticky",
+                    bottom: "6rem",
+                }}
+            >
+                <Player />
+            </Container>
+            <Footer
+                position="sticky"
+                size="md"
+                style={{ justifyContent: "space-around" }}
+            >
+                {footerLinks.map(({ url, icon }) => (
+                    <Link key={url} href={`/discover/${url}`} passHref>
+                        <Button
+                            icon={<Symbol type="outlined" icon={icon} />}
+                            disabled={currentPage === url}
+                        />
+                    </Link>
+                ))}
             </Footer>
         </Screen>
     );

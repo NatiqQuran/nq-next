@@ -12,6 +12,15 @@ import {
     Screen,
     Stack,
     Spacer,
+    H1,
+    H2,
+    H3,
+    H4,
+    H5,
+    H6,
+    P,
+    Span,
+    Text,
 } from "@yakad/ui";
 
 import GoBackButton from "@/components/goBackButton";
@@ -33,31 +42,34 @@ const Page: React.FC = () => {
 
     return (
         <Screen>
-            <AppBar style={{ flexWrap: "nowrap" }} sticky autohide>
-                <Container size="md" style={{ padding: 0 }}>
-                    <Row>
-                        <GoBackButton
-                            title="Go back"
-                            icon={<Symbol icon="arrow_back" />}
-                        />
-                        <Spacer />
-                        <h1 style={{ margin: 0 }}>Natiq</h1>
-                        <Spacer />
-                        <Button
-                            title="Mushaf Options"
-                            icon={<Symbol icon="settings" />}
-                            onClick={() => setIsMushafOptionsPopupVisible(true)}
-                        />
-                        <Button
-                            title="More"
-                            icon={<Symbol icon="more_vert" />}
-                            onClick={() => setIsMorePopupVisible(true)}
-                        />
-                    </Row>
-                </Container>
+            <AppBar
+                position="scroll"
+                size="md"
+                blur
+                style={{ flexWrap: "nowrap" }}
+            >
+                <GoBackButton
+                    title="Go back"
+                    icon={<Symbol icon="arrow_back" />}
+                />
+                <Spacer />
+                <H1 variant="heading3" title="Natiq Quran">
+                    Natiq
+                </H1>
+                <Spacer />
+                <Button
+                    title="Mushaf Options"
+                    icon={<Symbol icon="settings" />}
+                    onClick={() => setIsMushafOptionsPopupVisible(true)}
+                />
+                <Button
+                    title="More"
+                    icon={<Symbol icon="more_vert" />}
+                    onClick={() => setIsMorePopupVisible(true)}
+                />
             </AppBar>
             <Main>
-                <Container size="md" style={{ padding: "2rem" }}>
+                <Container size="md">
                     <FindBar
                         surahnumber={1}
                         ayahnumber={1}
@@ -66,19 +78,16 @@ const Page: React.FC = () => {
                         hizb={2}
                         onClick={() => setIsFindPopupVisible(true)}
                     />
-                    <Container
-                        size="sm"
-                        align="center"
-                        style={{ padding: "2rem" }}
-                    >
+                    <Container size="sm" align="center">
                         <Row>
-                            <h2 style={{ margin: 0, fontSize: "1.6rem" }}>
-                                1. Al-Fatihah
-                            </h2>
-                            <Spacer />
                             {/* <SurahPeriodIcon period="makki" /> */}
+                            <H2 title="Surah name" variant="heading6">
+                                1. Al-Fatihah
+                            </H2>
+                            <Spacer />
+                            <Text variant="heading6">5 Ayahs</Text>
                         </Row>
-                        <p>بسم الله الرحن الرحیم</p>
+                        <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
                     <Stack>
                         <h1>Hello Hello</h1>
@@ -107,61 +116,58 @@ const Page: React.FC = () => {
                     </Stack>
                     <PageDivider pagenumber={3} />
                     <Stack>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
+                        <H1>H1. Default</H1>
+                        <H2>H2. Default</H2>
+                        <H3>H3. Default</H3>
+                        <H4>H4. Default</H4>
+                        <H5>H5. Default</H5>
+                        <H6>H6. Default</H6>
+                        <P variant="body1">P. Body1</P>
+                        <P variant="body2">P. Body2</P>
+                        <P variant="body3">P. Body3</P>
+                        <P variant="caption">P. Caption</P>
+                        <Span>Span. Default</Span>
+                        <Span variant="heading2">Span. Heading2</Span>
                     </Stack>
                 </Container>
             </Main>
             <Footer
+                position="sticky"
+                size="md"
+                blur
                 style={{
                     borderTop:
                         "0.3rem solid rgb(var(--primaryColor,11 87 208))",
                     height: "7rem",
+                    justifyContent: "space-evenly",
                 }}
-                sticky
-                blur
             >
-                <Container size="md">
-                    <Row style={{ justifyContent: "space-around" }}>
-                        <Button
-                            title="Options"
-                            icon={<Symbol icon="tune" />}
-                            onClick={() => setIsPlayOptionsPopupVisible(true)}
-                        />
-                        <Button
-                            title="Previous Ayah"
-                            icon={<Symbol icon="chevron_left" />}
-                        />
-                        {true ? (
-                            <Button
-                                title="Play"
-                                variant="filled"
-                                icon={<Symbol icon="play_arrow" />}
-                            />
-                        ) : (
-                            <Button
-                                title="Pause"
-                                icon={<Symbol icon="pause" />}
-                            />
-                        )}
-                        <Button
-                            title="Next Ayah"
-                            icon={<Symbol icon="chevron_right" />}
-                        />
-                        <Button
-                            title="Fillscreen"
-                            icon={<Symbol icon="fullscreen" />}
-                        />
-                    </Row>
-                </Container>
+                <Button
+                    title="Options"
+                    icon={<Symbol icon="tune" />}
+                    onClick={() => setIsPlayOptionsPopupVisible(true)}
+                />
+                <Button
+                    title="Previous Ayah"
+                    icon={<Symbol icon="chevron_left" />}
+                />
+                {true ? (
+                    <Button
+                        title="Play"
+                        variant="filled"
+                        icon={<Symbol icon="play_arrow" />}
+                    />
+                ) : (
+                    <Button title="Pause" icon={<Symbol icon="pause" />} />
+                )}
+                <Button
+                    title="Next Ayah"
+                    icon={<Symbol icon="chevron_right" />}
+                />
+                <Button
+                    title="Fillscreen"
+                    icon={<Symbol icon="fullscreen" />}
+                />
             </Footer>
             <FindPopup
                 isVisible={isFindPopupVisible}

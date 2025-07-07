@@ -1,25 +1,22 @@
+"use client";
+
 import React from "react";
-import { AppBar, Button, Container, Row, Spacer } from "@yakad/ui";
+import { Button, Container, Row, H1, H2, P } from "@yakad/ui";
 
 import LastReadingButton from "@/components/lastReadingButton";
 
 const Page: React.FC = () => {
     return (
         <>
-            <AppBar>
-                <Container size="md">
-                    <Row>
-                        <h1>Natiq Quran</h1>
-                        <Spacer />
-                    </Row>
-                </Container>
-            </AppBar>
             <Container size="md">
-                <h2>Verse of the day</h2>
-                <p>Alam tara kayfa?</p>
+                <H1 variant="heading3">Natiq Quran</H1>
             </Container>
             <Container size="md">
-                <h2>Recomended</h2>
+                <H2 variant="heading4">Verse of the day</H2>
+                <P>Alam tara kayfa?</P>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Recomended</H2>
                 <Row>
                     <LastReadingButton>Continue reading</LastReadingButton>
                     <Button variant="outlined">Yasin</Button>
@@ -27,13 +24,15 @@ const Page: React.FC = () => {
                 </Row>
             </Container>
             <Container size="md">
-                <h2>Random Ayyah</h2>
-                <p>A mechanism of scrolling to find a random ayyah</p>
+                <H2 variant="heading4">Random Ayyah</H2>
+                <P>A mechanism of scrolling to find a random ayyah</P>
             </Container>
             <Container size="md">
-                <h2>Radio</h2>
-                <h2>Lists</h2>
-                <p>
+                <H2 variant="heading4">Radio</H2>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Lists</H2>
+                <P>
                     - Moghataat
                     <br />- Mosab{"'"}babat
                     <br />- Hamedat
@@ -42,8 +41,28 @@ const Page: React.FC = () => {
                     <br />- Mokhatebat
                     <br />- Zamanyat
                     <br />- Mo{"'"}azatein
-                </p>
-                <h2>Campains</h2>
+                </P>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">Campains</H2>
             </Container>
         </>
     );
