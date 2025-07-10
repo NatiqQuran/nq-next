@@ -10,16 +10,10 @@ import {
     Main,
     Row,
     Screen,
-    Stack,
     Spacer,
     H1,
     H2,
-    H3,
-    H4,
-    H5,
-    H6,
     P,
-    Span,
     Text,
 } from "@yakad/ui";
 
@@ -29,6 +23,7 @@ import MushafOptionsPopup from "./popupMushafOptions";
 import PlayOptionsPopup from "./popupPlayOptions";
 import FindPopup from "./popupFind";
 import MorePopup from "./popupMore";
+import Ayah from "./ayah";
 
 const Page: React.FC = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
@@ -89,46 +84,26 @@ const Page: React.FC = () => {
                         </Row>
                         <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
-                    <Stack>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                        <h1>Hello Hello</h1>
-                    </Stack>
+                    <Ayah
+                        onHold={() => alert("helded")}
+                        onRightClick={() => alert("right click")}
+                    />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
                     <PageDivider pagenumber={2} />
-                    <Stack>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                        <h1>Hello</h1>
-                    </Stack>
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
                     <PageDivider pagenumber={3} />
-                    <Stack>
-                        <H1>H1. Default</H1>
-                        <H2>H2. Default</H2>
-                        <H3>H3. Default</H3>
-                        <H4>H4. Default</H4>
-                        <H5>H5. Default</H5>
-                        <H6>H6. Default</H6>
-                        <P variant="body1">P. Body1</P>
-                        <P variant="body2">P. Body2</P>
-                        <P variant="body3">P. Body3</P>
-                        <P variant="caption">P. Caption</P>
-                        <Span>Span. Default</Span>
-                        <Span variant="heading2">Span. Heading2</Span>
-                    </Stack>
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
+                    <Ayah />
                 </Container>
             </Main>
             <Footer
