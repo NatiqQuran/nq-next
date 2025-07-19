@@ -58,13 +58,20 @@ const Page: React.FC = () => {
                     <Button icon={<Symbol icon="mic" />} />
                     <Button icon={<Symbol icon="camera" />} />
                 </Row>
-                <InputField
-                    boxsize="small"
-                    placeholder="Search Surah by Name or Number"
-                    onChange={(e) => {
-                        filterBySearchInputOnChange(e.target.value);
-                    }}
-                />
+                <Row>
+                    <InputField
+                        boxsize="small"
+                        placeholder="Search Surah by Name or Number"
+                        onChange={(e) => {
+                            filterBySearchInputOnChange(e.target.value);
+                        }}
+                    />
+                    <Button
+                        size="small"
+                        variant="outlined"
+                        icon={<Symbol icon="question_mark" />}
+                    />
+                </Row>
             </Container>
             {surahList ? (
                 <Container size="md" style={{ marginTop: "2rem" }}>
