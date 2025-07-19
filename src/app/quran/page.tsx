@@ -85,12 +85,12 @@ const Page: React.FC = () => {
                         <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
                     <Ayah
-                        onHold={() => alert("helded")}
-                        onRightClick={() => alert("right click")}
+                        onHold={() => setIsMorePopupVisible(true)}
+                        onRightClick={() => setIsMorePopupVisible(true)}
                     />
                     <Ayah />
                     <Ayah />
-                    <Ayah />
+                    <Ayah selected />
                     <Ayah />
                     <PageDivider pagenumber={2} />
                     <Ayah />

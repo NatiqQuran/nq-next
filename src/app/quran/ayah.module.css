@@ -1,14 +1,19 @@
 .ayah {
     background-color: transparent;
+    box-shadow: none;
     transition: background-color 0.3s ease-in-out;
     cursor: pointer;
 }
 
+.ayah.selected {
+    background-color: #7d7d7d20;
+}
+
 .ayah:hover {
-    background-color: blue;
+    background-color: #7d7d7d30;
 }
 
 .ayah.holding {
-    background-color: red;
+    background-color: #7d7d7d50;
     transition-delay: 0.1s;
 }

@@ -7,6 +7,7 @@ import { Card, CardProps } from "@yakad/ui";
 import styles from "./ayah.module.css";
 
 interface AyahProps extends CardProps {
+    selected?: boolean;
     onHold?: () => void;
     onRightClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
@@ -14,6 +15,7 @@ interface AyahProps extends CardProps {
 const Ayah = forwardRef<HTMLDivElement, AyahProps>(
     (
         {
+            selected = false,
             onHold,
             onMouseDown,
             onMouseUp,
@@ -52,6 +54,7 @@ const Ayah = forwardRef<HTMLDivElement, AyahProps>(
 
         const joinedClassNames = classNames(
             styles.ayah,
+            { [styles.selected]: selected },
             { [styles.holding]: isHolding },
             className
         );

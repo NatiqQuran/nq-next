@@ -24,11 +24,25 @@ const Page: React.FC = () => {
                 </Row>
             </Container>
             <Container size="md">
-                <H2 variant="heading4">Random Ayyah</H2>
+                <H2 variant="heading4">Random</H2>
+                <P>Tabs: random Ayah, Surah, Page</P>
                 <P>A mechanism of scrolling to find a random ayyah</P>
+                <P>
+                    Methods: with random number generator algorithms, with user
+                    touch or scroll
+                </P>
             </Container>
             <Container size="md">
                 <H2 variant="heading4">Radio</H2>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Campains</H2>
+                <P>
+                    - Khatm Quran
+                    <br />- Search in niyats
+                    <br />- Create your niyat & Khatm plan
+                    <br />- Choose how much you wnat to read & get your section
+                </P>
             </Container>
             <Container size="md">
                 <H2 variant="heading4">Lists</H2>
@@ -44,25 +58,29 @@ const Page: React.FC = () => {
                 </P>
             </Container>
             <Container size="md">
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
-                <H2 variant="heading4">Campains</H2>
+                <H2 variant="heading4">My reading plan</H2>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Keep Quran exercise</H2>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Daily remind</H2>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Weekly activity</H2>
+                <P>
+                    - Minutes
+                    <br />- Verses
+                    <br />- Days
+                </P>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Memorizing Test</H2>
+                <P>view Ayyah after click on screen</P>
+            </Container>
+            <Container size="md">
+                <H2 variant="heading4">Pronunciation measurement</H2>
+                <P>AI + MIC</P>
             </Container>
         </>
     );
