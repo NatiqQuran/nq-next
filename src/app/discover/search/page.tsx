@@ -17,7 +17,7 @@ import Symbol from "@yakad/symbols";
 import { RelatedSurahs, SearchResult } from "./utils";
 import { controllerSurah } from "../../../connection";
 
-const Page: React.FC = () => {
+const Page = () => {
     const [surahList, setSurahList] = useState<SurahListResponseData | null>(
         null
     );

@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { Button, Hr, Row, Select, Spacer, Stack } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
-import Popup, { PopupProps } from "../ui/popup/popup";
+import Popup, { PopupProps } from "../../ui/popup/popup";
 
 const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ setIsVisible, ...restProps }, ref) => (
@@ -14,13 +14,6 @@ const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
             <Row style={{ marginBottom: "2rem" }}>
                 <h2 style={{ margin: 0 }}>Mushaf Options</h2>
                 <Spacer />
-                <div>
-                    <Select boxsize="small" style={{ width: "initial" }}>
-                        <option value="en">English</option>
-                        <option value="ar">Arabic</option>
-                        <option value="fa">Persian</option>
-                    </Select>
-                </div>
                 <Button title="Dark mode" icon={<Symbol icon="dark_mode" />} />
                 <Button
                     title="Close"

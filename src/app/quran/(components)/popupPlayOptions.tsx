@@ -2,7 +2,7 @@ import { forwardRef } from "react";
 import { Button, CheckBox, Hr, Row, Select, Spacer, Stack } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
-import Popup, { PopupProps } from "../ui/popup/popup";
+import Popup, { PopupProps } from "../../ui/popup/popup";
 
 const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ setIsVisible, ...restProps }, ref) => (

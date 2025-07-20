@@ -2,11 +2,14 @@
 
 import { forwardRef, useRef, useState } from "react";
 import classNames from "classnames";
-import { Card, CardProps } from "@yakad/ui";
+import { Card, CardProps, P } from "@yakad/ui";
 
 import styles from "./ayah.module.css";
+import { Sajdah } from "@ntq/sdk";
 
 interface AyahProps extends CardProps {
+    number: number;
+    sajdah?: Sajdah;
     selected?: boolean;
     onHold?: () => void;
     onRightClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
@@ -15,6 +18,8 @@ interface AyahProps extends CardProps {
 const Ayah = forwardRef<HTMLDivElement, AyahProps>(
     (
         {
+            number,
+            sajdah,
             selected = false,
             onHold,
             onMouseDown,
@@ -89,37 +94,49 @@ const Ayah = forwardRef<HTMLDivElement, AyahProps>(
                 className={joinedClassNames}
                 {...restProps}
             >
-                <div style={{ textAlign: "right" }}>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
-                    <div style={{ display: "inline-block" }}>
-                        <div>عربی</div>
-                        <div>Word</div>
-                    </div>
+                <div style={{ direction: "rtl", textAlign: "right" }}>
+                    <P variant="body2">
+                        <span>کلمه </span>
+                        <span>کلمه </span>
+                        <span>کلمه </span>
+                        <span>کلمه </span>
+                        <span>کلمه </span>
+                        <span>کلمه </span>
+                        <SajdahIcon sajdah={sajdah} />
+                        <AyahNumber number={number} />
+                    </P>
                 </div>
-                <div>Translation text</div>
+                <div>
+                    <P variant="body4">Translation text</P>
+                </div>
             </Card>
         );
     }
 );
 Ayah.displayName = "Ayah";
+
+const SajdahIcon = ({ sajdah }: { sajdah?: Sajdah }) => {
+    if (sajdah === "vajib")
+        return (
+            <span
+                title="Vajib Sajdah"
+                style={{ cursor: "help", fontWeight: "bold" }}
+            >
+                {`۩ `}
+            </span>
+        );
+    if (sajdah === "mustahab")
+        return (
+            <span title="Mustahab Sajdah" style={{ cursor: "help" }}>
+                {`۩ `}
+            </span>
+        );
+};
+
+const AyahNumber = ({ number }: { number: number }) => {
+    const toArabic = (num: number) => num.toLocaleString("ar-EG");
+
+    return <span>{`﴿${toArabic(number)}﴾ `}</span>;
+};
 
 export default Ayah;

@@ -8,14 +8,15 @@ import Symbol, { IconCode } from "@yakad/symbols";
 import Player from "@/components/player";
 
 interface FooterLink {
+    title: string;
     url: string;
     icon: IconCode;
 }
 const footerLinks: FooterLink[] = [
-    { url: "home", icon: "home" },
-    { url: "search", icon: "search" },
-    { url: "library", icon: "library_books" },
-    { url: "profile", icon: "account_circle" },
+    { title: "Home", url: "home", icon: "home" },
+    { title: "Search", url: "search", icon: "search" },
+    { title: "Library", url: "library", icon: "library_books" },
+    { title: "Setting", url: "setting", icon: "settings" },
 ];
 
 function Layout({ children }: { children: React.ReactNode }) {
@@ -39,11 +40,21 @@ function Layout({ children }: { children: React.ReactNode }) {
                 size="md"
                 style={{ justifyContent: "space-around" }}
             >
-                {footerLinks.map(({ url, icon }) => (
-                    <Link key={url} href={`/discover/${url}`} passHref>
+                {footerLinks.map((footerLink) => (
+                    <Link
+                        key={footerLink.url}
+                        href={`/discover/${footerLink.url}`}
+                        passHref
+                    >
                         <Button
-                            icon={<Symbol type="outlined" icon={icon} />}
-                            disabled={currentPage === url}
+                            title={footerLink.title}
+                            icon={
+                                <Symbol
+                                    type="outlined"
+                                    icon={footerLink.icon}
+                                />
+                            }
+                            disabled={currentPage === footerLink.url}
                         />
                     </Link>
                 ))}

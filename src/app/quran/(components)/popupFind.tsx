@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import Popup, { PopupProps } from "../ui/popup/popup";
+import Popup, { PopupProps } from "../../ui/popup/popup";
 import { Button, InputField, Row, Select, Spacer, Stack } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 
