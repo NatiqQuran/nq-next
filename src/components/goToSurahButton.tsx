@@ -1,9 +1,9 @@
-import { SurahListResponseData } from "@ntq/sdk";
-import { Button } from "@yakad/ui";
 import Link from "next/link";
+import { SurahsListResponseData } from "@ntq/sdk";
+import { Button } from "@yakad/ui";
 
 interface RandomSurahButtonProps {
-    surahList: SurahListResponseData;
+    surahList: SurahsListResponseData;
     surahNumber: number;
 }
 
@@ -14,7 +14,7 @@ const GoToSurahButton = (props: RandomSurahButtonProps) => {
             passHref
         >
             <Button variant="outlined">
-                {props.surahList[props.surahNumber - 1].names[0].arabic}
+                {props.surahList[props.surahNumber - 1].names[0].name}
             </Button>
         </Link>
     );
