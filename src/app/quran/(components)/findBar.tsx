@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useState } from "react";
-import { Card, CardProps, Row, RowProps } from "@yakad/ui";
+import { Card, CardProps } from "@yakad/ui";
 
 interface FindBarProps extends CardProps {
     surahnumber: number;
@@ -10,7 +10,7 @@ interface FindBarProps extends CardProps {
     juz: number;
     hizb: number;
 }
-export const FindBar = forwardRef<HTMLDivElement, FindBarProps>(
+const FindBar = forwardRef<HTMLDivElement, FindBarProps>(
     ({ surahnumber, ayahnumber, pagenumber, juz, hizb, ...restProps }, ref) => {
         const [top, setTop] = useState(2);
         const [lastScrollY, setLastScrollY] = useState(0);
@@ -53,6 +53,7 @@ export const FindBar = forwardRef<HTMLDivElement, FindBarProps>(
                     willChange: "top",
                     zIndex: "1",
                     cursor: "pointer",
+                    userSelect: "none",
                 }}
             >
                 <div>{surahnumber + ". Al-Fatihah: " + ayahnumber}</div>
@@ -64,26 +65,4 @@ export const FindBar = forwardRef<HTMLDivElement, FindBarProps>(
 );
 FindBar.displayName = "FindBar";
 
-interface PageDividerProps extends RowProps {
-    pagenumber: number;
-}
-export const PageDivider = forwardRef<HTMLDivElement, PageDividerProps>(
-    ({ pagenumber, ...restProps }, ref) => {
-        return (
-            <Row
-                ref={ref}
-                {...restProps}
-                align="center"
-                style={{
-                    padding: "0.5rem",
-                    borderTop: "0.1rem solid #7d7d7d",
-                    fontSize: "1.2rem",
-                    opacity: "0.5",
-                }}
-            >
-                <div style={{ cursor: "pointer" }}>{"Page " + pagenumber}</div>
-            </Row>
-        );
-    }
-);
-PageDivider.displayName = "PageDivider";
+export default FindBar;

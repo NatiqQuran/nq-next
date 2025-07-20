@@ -16,14 +16,14 @@ import {
     P,
     Text,
 } from "@yakad/ui";
-
 import GoBackButton from "@/components/goBackButton";
-import { FindBar, PageDivider } from "./components";
-import MushafOptionsPopup from "./popupMushafOptions";
-import PlayOptionsPopup from "./popupPlayOptions";
-import FindPopup from "./popupFind";
-import MorePopup from "./popupMore";
-import Ayah from "./ayah";
+import FindBar from "./(components)/findBar";
+import PageDivider from "./(components)/pageDivider";
+import MushafOptionsPopup from "./(components)/popupMushafOptions";
+import PlayOptionsPopup from "./(components)/popupPlayOptions";
+import FindPopup from "./(components)/popupFind";
+import MorePopup from "./(components)/popupMore";
+import Ayah from "./(components)/ayah/ayah";
 
 const Page: React.FC = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
@@ -48,19 +48,14 @@ const Page: React.FC = () => {
                     icon={<Symbol icon="arrow_back" />}
                 />
                 <Spacer />
-                <H1 variant="heading3" title="Natiq Quran">
+                <H1 variant="heading4" title="Natiq Quran">
                     Natiq
                 </H1>
                 <Spacer />
                 <Button
                     title="Mushaf Options"
-                    icon={<Symbol icon="settings" />}
+                    icon={<Symbol type="outlined" icon="settings" />}
                     onClick={() => setIsMushafOptionsPopupVisible(true)}
-                />
-                <Button
-                    title="More"
-                    icon={<Symbol icon="more_vert" />}
-                    onClick={() => setIsMorePopupVisible(true)}
                 />
             </AppBar>
             <Main>
@@ -85,25 +80,26 @@ const Page: React.FC = () => {
                         <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
                     <Ayah
+                        number={1}
                         onHold={() => setIsMorePopupVisible(true)}
                         onRightClick={() => setIsMorePopupVisible(true)}
                     />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah selected />
-                    <Ayah />
+                    <Ayah number={2} />
+                    <Ayah number={3} />
+                    <Ayah number={4} selected />
+                    <Ayah number={5} />
                     <PageDivider pagenumber={2} />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
+                    <Ayah number={6} />
+                    <Ayah number={7} sajdah="mustahab" />
+                    <Ayah number={8} sajdah="vajib" />
+                    <Ayah number={9} />
+                    <Ayah number={10} />
                     <PageDivider pagenumber={3} />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
-                    <Ayah />
+                    <Ayah number={11} />
+                    <Ayah number={12} />
+                    <Ayah number={13} />
+                    <Ayah number={14} />
+                    <Ayah number={15} />
                 </Container>
             </Main>
             <Footer
