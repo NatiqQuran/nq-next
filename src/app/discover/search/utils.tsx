@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { SurahListResponseItem, SurahListResponseData } from "@ntq/sdk";
+import { SurahsListResponseData } from "@ntq/sdk";
 import {
     GridContainer,
     GridItem,
@@ -14,7 +14,7 @@ import {
 // import RandomSurahButton from "../../components/randomSurahButton";
 import GoToSurahButton from "../../../components/goToSurahButton";
 
-const RelatedSurahs = (props: { surahList: SurahListResponseData }) => (
+const RelatedSurahs = (props: { surahList: SurahsListResponseData }) => (
     <Row style={{ marginTop: "2rem" }} overflow="scroll">
         {/* <RandomSurahButton surahList={props.surahList} /> */}
         <GoToSurahButton surahList={props.surahList} surahNumber={55} />
@@ -24,7 +24,7 @@ const RelatedSurahs = (props: { surahList: SurahListResponseData }) => (
     </Row>
 );
 
-const SearchResult = (props: { surahList: SurahListResponseItem[] }) => (
+const SearchResult = (props: { surahList: SurahsListResponseData }) => (
     <div
         style={{
             width: "100%",
@@ -50,7 +50,7 @@ const SearchResult = (props: { surahList: SurahListResponseItem[] }) => (
     </div>
 );
 
-const SurahLinkBox = (props: { surah: SurahListResponseData[0] }) => (
+const SurahLinkBox = (props: { surah: SurahsListResponseData[0] }) => (
     <Link href={`/quran/${props.surah.uuid}`} passHref>
         <Card>
             <Row>
@@ -73,7 +73,7 @@ const SurahLinkBox = (props: { surah: SurahListResponseData[0] }) => (
                                 fontWeight: "bold",
                             }}
                         >
-                            {props.surah.names[0].arabic}
+                            {props.surah.names[0].name}
                         </span>
                         {/* <SurahPeriodIcon period={props.surah.period} /> */}
                         <h5>{props.surah.period}</h5>
