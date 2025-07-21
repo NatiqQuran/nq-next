@@ -14,7 +14,7 @@ const Page = () => {
             </Container>
             <Container size="md">
                 <H2 variant="heading4">Recomended</H2>
-                <Row>
+                <Row overflow="scroll">
                     <LastReadingButton>Continue reading</LastReadingButton>
                     <Button variant="outlined">Yasin</Button>
                     <Button variant="outlined">Ayat Al-Kursi</Button>
