@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Theme } from "@yakad/ui";
+import { StorageProvider } from "@/context/storageContext";
+import ThemeWrapper from "./themeWrapper";
 
 export const runtime = "edge";
 
@@ -26,7 +27,9 @@ function Layout({
                 <link rel="manifest" href="manifest.json" />
             </head>
             <body>
-                <Theme color="green">{children}</Theme>
+                <StorageProvider>
+                    <ThemeWrapper>{children}</ThemeWrapper>
+                </StorageProvider>
             </body>
         </html>
     );

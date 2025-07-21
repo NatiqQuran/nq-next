@@ -16,7 +16,7 @@ const footerLinks: FooterLink[] = [
     { title: "Home", url: "home", icon: "home" },
     { title: "Search", url: "search", icon: "search" },
     { title: "Library", url: "library", icon: "library_books" },
-    { title: "Setting", url: "setting", icon: "settings" },
+    { title: "Settings", url: "settings", icon: "settings" },
 ];
 
 function Layout({ children }: { children: React.ReactNode }) {
