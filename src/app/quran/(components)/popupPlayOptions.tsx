@@ -1,5 +1,15 @@
 import { forwardRef } from "react";
-import { Button, CheckBox, Hr, Row, Select, Spacer, Stack } from "@yakad/ui";
+import {
+    Button,
+    CheckBox,
+    H5,
+    H6,
+    Hr,
+    Row,
+    Select,
+    Spacer,
+    Stack,
+} from "@yakad/ui";
 import Symbol from "@yakad/symbols";
 import { useStorage } from "@/context/storageContext";
 import Popup, { PopupProps } from "../../ui/popup/popup";
@@ -34,13 +44,9 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
         };
 
         return (
-            <Popup
-                ref={ref}
-                {...restProps}
-                setIsVisible={() => setIsVisible?.(false)}
-            >
+            <Popup ref={ref} {...restProps} setIsVisible={setIsVisible}>
                 <Row style={{ marginBottom: "2rem" }}>
-                    <h2 style={{ margin: 0 }}>Play Options</h2>
+                    <H5 variant="heading4">Play Options</H5>
                     <Spacer />
                     <Button
                         title="Close"
@@ -51,7 +57,7 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                 <Hr />
                 <Stack style={{ flexGrow: 1 }}>
                     <Row>
-                        <h3 style={{ margin: 0 }}>Recite</h3>
+                        <H6 variant="heading5">Recite</H6>
                         <Spacer />
                         <CheckBox
                             title="Recitation play status"
@@ -188,7 +194,7 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                         </Select>
                     </Row>
                     <Row>
-                        <h3 style={{ margin: 0 }}>Translate</h3>
+                        <H6 variant="heading5">Translate</H6>
                         <Spacer />
                         <CheckBox
                             title="Translate play status"
@@ -207,7 +213,7 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                         <option value="">Mr x</option>
                     </Select>
                     <Row>
-                        <h3 style={{ margin: 0 }}>Background Sound</h3>
+                        <H6 variant="heading5">Background Sound</H6>
                         <Spacer />
                         <CheckBox
                             title="Background sound play status"
@@ -226,7 +232,7 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                         <option value="rain">Rain</option>
                         <option value="jungle">Jungle</option>
                     </Select>
-                    <h3 style={{ margin: 0 }}>Auto scroll</h3>
+                    <H6 variant="heading5">Auto scroll</H6>
                     <CheckBox
                         label="Auto scroll"
                         name="autoScroll"

@@ -5,11 +5,7 @@ import Symbol from "@yakad/symbols";
 
 const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ setIsVisible, ...restProps }, ref) => (
-        <Popup
-            ref={ref}
-            {...restProps}
-            setIsVisible={() => setIsVisible?.(false)}
-        >
+        <Popup ref={ref} {...restProps} setIsVisible={setIsVisible}>
             <Row style={{ marginBottom: "2rem" }}>
                 <h2 style={{ margin: 0 }}>Find</h2>
                 <Spacer />
@@ -43,7 +39,7 @@ const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
                 </Row>
                 <h3>By Page:</h3>
                 <Row>
-                    <InputField placeholder="Page" value={1} />
+                    <InputField placeholder="Page" defaultValue={1} />
                 </Row>
                 <Button variant="filled">Find</Button>
             </Stack>

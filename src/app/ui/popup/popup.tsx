@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
-
-import styles from "./popup.module.css";
 import { Card, CardProps, ClickOutsideListener } from "@yakad/ui";
+import styles from "./popup.module.css";
 
 export interface PopupProps extends CardProps {
     title?: string;

@@ -25,7 +25,7 @@ import FindPopup from "./(components)/popupFind";
 import MorePopup from "./(components)/popupMore";
 import Ayah from "./(components)/ayah/ayah";
 
-const Page: React.FC = () => {
+const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
         useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
