@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeColor, ThemeMode } from "@yakad/ui";
+import { ThemeColor, DarkStyle } from "@yakad/ui";
 import {
     createContext,
     useContext,
@@ -13,7 +13,7 @@ import {
 
 // ----- 1. Types for each storage section -----
 interface Settings {
-    darkStyle: ThemeMode;
+    darkStyle: DarkStyle;
     themeColor: ThemeColor;
     zoom?: number; //Percentage zoom level (e.g., 100 for 100%)
     language: string;
@@ -44,8 +44,6 @@ interface Options {
     limitRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
     announcationStatus: boolean;
     announcationUUID: string;
-    backgroundSoundStatus: boolean;
-    backgroundSound: "rain" | "jungle";
     autoScroll: boolean;
 }
 
@@ -84,8 +82,6 @@ const defaultStorage: Storage = {
         limitRepeat: 0,
         announcationStatus: false,
         announcationUUID: "UUID",
-        backgroundSoundStatus: false,
-        backgroundSound: "rain",
         autoScroll: true,
     },
     selectedAyahUUID: "test",

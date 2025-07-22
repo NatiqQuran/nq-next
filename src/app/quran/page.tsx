@@ -140,22 +140,34 @@ const Page = () => {
                     icon={<Symbol icon="fullscreen" />}
                 />
             </Footer>
-            <FindPopup
-                isVisible={isFindPopupVisible}
-                setIsVisible={setIsFindPopupVisible}
-            />
-            <MorePopup
-                isVisible={isMorePopupVisible}
-                setIsVisible={setIsMorePopupVisible}
-            />
-            <MushafOptionsPopup
-                isVisible={isMushafOptionsPopupVisible}
-                setIsVisible={setIsMushafOptionsPopupVisible}
-            />
-            <PlayOptionsPopup
-                isVisible={isPlayOptionsPopupVisible}
-                setIsVisible={setIsPlayOptionsPopupVisible}
-            />
+            {isFindPopupVisible && (
+                <FindPopup
+                    heading="Find"
+                    onclosebuttonclick={() => setIsFindPopupVisible(false)}
+                />
+            )}
+            {isMorePopupVisible && (
+                <MorePopup
+                    heading="Al-Fatihah"
+                    onclosebuttonclick={() => setIsMorePopupVisible(false)}
+                />
+            )}
+            {isMushafOptionsPopupVisible && (
+                <MushafOptionsPopup
+                    heading="Mushaf options"
+                    onclosebuttonclick={() =>
+                        setIsMushafOptionsPopupVisible(false)
+                    }
+                />
+            )}
+            {isPlayOptionsPopupVisible && (
+                <PlayOptionsPopup
+                    heading="Playing options"
+                    onclosebuttonclick={() =>
+                        setIsPlayOptionsPopupVisible(false)
+                    }
+                />
+            )}
         </Screen>
     );
 };

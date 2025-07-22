@@ -1,22 +1,20 @@
 import { forwardRef } from "react";
-import { Button, Stack } from "@yakad/ui";
-
-import Popup, { PopupProps } from "../../ui/popup/popup";
+import { Button, Popup, PopupProps, Stack, Text } from "@yakad/ui";
 
 const MorePopup = forwardRef<HTMLDivElement, PopupProps>(
-    ({ setIsVisible, ...restProps }, ref) => (
+    ({ onclosebuttonclick, ...restProps }, ref) => (
         <Popup
             ref={ref}
             {...restProps}
-            setIsVisible={() => setIsVisible?.(false)}
+            onclosebuttonclick={onclosebuttonclick}
             align="center"
         >
-            <h2>Al-Fatihah:4</h2>
+            <Text variant="heading3">Al-Fatihah:4</Text>
             <Stack align="center" style={{ flexGrow: 1 }}>
                 <Button>Share</Button>
                 <Button>Favorite</Button>
             </Stack>
-            <Button variant="link" onClick={() => setIsVisible?.(false)}>
+            <Button variant="link" onClick={onclosebuttonclick}>
                 Close
             </Button>
         </Popup>

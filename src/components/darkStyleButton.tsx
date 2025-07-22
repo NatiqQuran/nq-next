@@ -1,13 +1,13 @@
 "use client";
 
 import { forwardRef } from "react";
-import { Button, ButtonProps, ThemeMode } from "@yakad/ui";
+import { Button, ButtonProps, DarkStyle } from "@yakad/ui";
 import { useStorage } from "@/context/storageContext";
 import Symbol, { IconCode } from "@yakad/symbols";
 
-const order: ThemeMode[] = ["system", "light", "dark"];
+const order: DarkStyle[] = ["system", "light", "dark"];
 
-const iconsMap: Record<ThemeMode, IconCode> = {
+const iconsMap: Record<DarkStyle, IconCode> = {
     system: "settings_brightness",
     light: "light_mode",
     dark: "dark_mode",
@@ -19,7 +19,7 @@ const DarkStyleButton = forwardRef<
 >(({ children, ...props }, ref) => {
     const { storage, setStorage } = useStorage();
 
-    const currentStyle: ThemeMode = storage?.settings?.darkStyle || "system";
+    const currentStyle: DarkStyle = storage?.settings?.darkStyle || "system";
 
     const toggleDarkStyle = () => {
         const currentIndex = order.indexOf(currentStyle);
