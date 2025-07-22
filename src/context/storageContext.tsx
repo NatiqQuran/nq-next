@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeColor, ThemeMode } from "@yakad/ui";
+import { ThemeColor, DarkStyle } from "@yakad/ui";
 import {
     createContext,
     useContext,
@@ -13,7 +13,7 @@ import {
 
 // ----- 1. Types for each storage section -----
 interface Settings {
-    themeMode: ThemeMode;
+    darkStyle: DarkStyle;
     themeColor: ThemeColor;
     zoom?: number; //Percentage zoom level (e.g., 100 for 100%)
     language: string;
@@ -23,6 +23,7 @@ interface Options {
     arabicFontSize: "small" | "medium" | "large";
     translationUUID: string;
     translationFontSize: "small" | "medium" | "large";
+    translationByWordUUID: string;
 
     playing: boolean;
     recitationStatus: boolean;
@@ -43,8 +44,6 @@ interface Options {
     limitRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
     announcationStatus: boolean;
     announcationUUID: string;
-    backgroundSoundStatus: boolean;
-    backgroundSound: "rain" | "jungle";
     autoScroll: boolean;
 }
 
@@ -60,7 +59,7 @@ interface Storage {
 // ----- 3. Default values -----
 const defaultStorage: Storage = {
     settings: {
-        themeMode: "system",
+        darkStyle: "system",
         themeColor: "green",
         zoom: 100,
         language: "en",
@@ -70,6 +69,8 @@ const defaultStorage: Storage = {
         arabicFontSize: "medium",
         translationUUID: "UUID",
         translationFontSize: "medium",
+        translationByWordUUID: "UUID",
+
         playing: false,
         recitationStatus: true,
         recitationUUID: "UUID",
@@ -81,8 +82,6 @@ const defaultStorage: Storage = {
         limitRepeat: 0,
         announcationStatus: false,
         announcationUUID: "UUID",
-        backgroundSoundStatus: false,
-        backgroundSound: "rain",
         autoScroll: true,
     },
     selectedAyahUUID: "test",

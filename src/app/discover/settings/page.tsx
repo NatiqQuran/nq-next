@@ -28,9 +28,9 @@ const Page = () => {
 
             <Container size="sm">
                 <Select
-                    name="themeMode"
+                    name="darkStyle"
                     placeholder="Theme"
-                    value={storage.settings.themeMode}
+                    value={storage.settings.darkStyle}
                     onChange={handleChange}
                 >
                     <option value="system">System</option>
