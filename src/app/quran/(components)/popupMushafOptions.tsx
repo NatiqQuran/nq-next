@@ -1,6 +1,8 @@
 import { forwardRef } from "react";
 import { Row, Select, Text, PopupProps, Popup } from "@yakad/ui";
 import { useStorage } from "@/context/storageContext";
+import DarkStyleButton from "@/components/darkStyleButton";
+import ColorButton from "@/components/colorButton";
 
 const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ ...restProps }, ref) => {
@@ -60,10 +62,20 @@ const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                 >
                     <option value="uuid">Mr unknown</option>
                 </Select>
+                <Text variant="heading5">Theme</Text>
+                <Row align="center" style={{ justifyContent: "space-evenly" }}>
+                    <DarkStyleButton
+                        variant="filled"
+                        style={{ width: "14rem" }}
+                    />
+                    <ColorButton variant="filled" style={{ width: "14rem" }} />
+                    <ColorButton variant="filled" style={{ width: "14rem" }} />
+                </Row>
             </Popup>
         );
     }
 );
+
 MushafOptionsPopup.displayName = "MushafOptionsPopup";
 
 export default MushafOptionsPopup;

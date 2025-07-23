@@ -7,15 +7,30 @@ import Symbol, { IconCode } from "@yakad/symbols";
 
 const order: DarkStyle[] = ["system", "light", "dark"];
 
-const iconsMap: Record<DarkStyle, IconCode> = {
-    system: "settings_brightness",
-    light: "light_mode",
-    dark: "dark_mode",
+const stylesMap: Record<
+    DarkStyle,
+    { name: string; title: string; icon: IconCode }
+> = {
+    system: {
+        name: "System",
+        title: "Switch to Light Mode",
+        icon: "brightness_6",
+    },
+    light: {
+        name: "Light",
+        title: "Switch to Dark Mode",
+        icon: "light_mode",
+    },
+    dark: {
+        name: "Dark",
+        title: "Switch to System Mode",
+        icon: "dark_mode",
+    },
 };
 
 const DarkStyleButton = forwardRef<
     HTMLButtonElement,
-    Omit<ButtonProps, "icon" | "onClick">
+    Omit<ButtonProps, "icon" | "onClick" | "title">
 >(({ children, ...props }, ref) => {
     const { storage, setStorage } = useStorage();
 
@@ -39,10 +54,11 @@ const DarkStyleButton = forwardRef<
         <Button
             ref={ref}
             {...props}
-            icon={<Symbol icon={iconsMap[currentStyle]} />}
+            title={stylesMap[currentStyle].title}
+            icon={<Symbol icon={stylesMap[currentStyle].icon} />}
             onClick={toggleDarkStyle}
         >
-            {children}
+            {children || stylesMap[currentStyle].name}
         </Button>
     );
 });

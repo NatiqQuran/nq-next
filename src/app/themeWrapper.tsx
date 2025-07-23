@@ -13,7 +13,7 @@ const ThemeWrapper = forwardRef<
     return (
         <Theme
             ref={ref}
-            mode={storage.settings.darkStyle}
+            darkStyle={storage.settings.darkStyle}
             color={storage.settings.themeColor}
             zoom={storage.settings.zoom}
             {...restProps}
