@@ -1,63 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
-import Symbol from "@yakad/symbols";
-import {
-    AppBar,
-    Button,
-    Container,
-    Main,
-    Row,
-    Screen,
-    Spacer,
-    H1,
-    H2,
-    P,
-    Text,
-} from "@yakad/ui";
+import { useState } from "react";
+import { Container, Main, Row, Screen, Spacer, H2, P, Text } from "@yakad/ui";
 import {
     Ayah,
     FindBar,
     FindPopup,
-    GoBackButton,
     MorePopup,
-    MushafOptionsPopup,
     PageDivider,
     SurahPeriodIcon,
 } from "@/components";
 import FooterWrapper from "./footerWrappers";
+import AppBarWrapper from "./appBarWrapper";
 
 const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
         useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
         useState<boolean>(false);
-    const [isMushafOptionsPopupVisible, setIsMushafOptionsPopupVisible] =
-        useState<boolean>(false);
 
     return (
         <Screen>
-            <AppBar
-                position="scroll"
-                size="md"
-                blur
-                style={{ flexWrap: "nowrap" }}
-            >
-                <GoBackButton
-                    title="Go back"
-                    icon={<Symbol icon="arrow_back" />}
-                />
-                <Spacer />
-                <H1 variant="heading4" title="Natiq Quran">
-                    Natiq
-                </H1>
-                <Spacer />
-                <Button
-                    title="Mushaf Options"
-                    icon={<Symbol type="outlined" icon="settings" />}
-                    onClick={() => setIsMushafOptionsPopupVisible(true)}
-                />
-            </AppBar>
+            <AppBarWrapper />
             <Main>
                 <Container size="md">
                     <FindBar
@@ -113,14 +77,6 @@ const Page = () => {
                 <MorePopup
                     heading="Al-Fatihah"
                     onclosebuttonclick={() => setIsMorePopupVisible(false)}
-                />
-            )}
-            {isMushafOptionsPopupVisible && (
-                <MushafOptionsPopup
-                    heading="Mushaf options"
-                    onclosebuttonclick={() =>
-                        setIsMushafOptionsPopupVisible(false)
-                    }
                 />
             )}
         </Screen>
