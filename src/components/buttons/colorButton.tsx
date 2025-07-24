@@ -3,7 +3,7 @@
 import { forwardRef } from "react";
 import { Button, ButtonProps, ThemeColor } from "@yakad/ui";
 import Symbol, { IconCode } from "@yakad/symbols";
-import { useStorage } from "@/context/storageContext";
+import { useStorage } from "@/contexts/storageContext";
 
 const order: ThemeColor[] = ["blue", "green", "red", "yellow", "purple"];
 
@@ -38,7 +38,7 @@ const optionsMap: Record<
     },
 };
 
-const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
+export const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ title, icon, onClick, children, ...props }, ref) => {
         const { storage, setStorage } = useStorage();
 
@@ -75,7 +75,4 @@ const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-
 ColorButton.displayName = "ColorButton";
-
-export default ColorButton;

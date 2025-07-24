@@ -3,7 +3,7 @@
 import { forwardRef, useState } from "react";
 import { Button, ButtonProps } from "@yakad/ui";
 
-const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
+export const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ children, onClick, ...props }, ref) => {
         const [reseting, setReseting] = useState(false);
 
@@ -29,7 +29,4 @@ const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-
 ResetButton.displayName = "ResetButton";
-
-export default ResetButton;

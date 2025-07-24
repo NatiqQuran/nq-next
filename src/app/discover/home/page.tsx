@@ -1,5 +1,5 @@
 import { Button, Container, Row, H1, H2, P } from "@yakad/ui";
-import LastReadingButton from "@/components/lastReadingButton";
+import { LastReadingButton } from "@/components";
 
 const Page = () => {
     return (

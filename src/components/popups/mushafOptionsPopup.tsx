@@ -1,10 +1,9 @@
 import { forwardRef } from "react";
 import { Row, Select, Text, PopupProps, Popup } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
-import DarkStyleButton from "@/components/darkStyleButton";
-import ColorButton from "@/components/colorButton";
+import { DarkStyleButton, ColorButton } from "@/components";
+import { useStorage } from "@/contexts/storageContext";
 
-const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
+export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
         const handleSelectChange = (
@@ -75,7 +74,4 @@ const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
         );
     }
 );
-
 MushafOptionsPopup.displayName = "MushafOptionsPopup";
-
-export default MushafOptionsPopup;

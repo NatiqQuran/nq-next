@@ -2,21 +2,12 @@ import { forwardRef } from "react";
 import Link from "next/link";
 import { Button, Card, CardProps, Row, Text } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
-import { useStorage } from "@/context/storageContext";
+import { PlayButton } from "@/components";
+import { useStorage } from "@/contexts/storageContext";
 
-const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
+export const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
     ({ ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
-
-        const togglePlay = () => {
-            setStorage((prev) => ({
-                ...prev,
-                options: {
-                    ...prev.options,
-                    playing: !storage.options.playing,
-                },
-            }));
-        };
 
         const closePlayer = () => {
             setStorage((prev) => ({
@@ -53,19 +44,7 @@ const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
                             <Text variant="caption">Abd Ol-Basit</Text>
                         </div>
                     </Link>
-                    <Button
-                        title={storage.options.playing ? "Pause" : "Play"}
-                        icon={
-                            <Symbol
-                                icon={
-                                    storage.options.playing
-                                        ? "pause"
-                                        : "play_arrow"
-                                }
-                            />
-                        }
-                        onClick={togglePlay}
-                    />
+                    <PlayButton />
                     <Button
                         icon={<Symbol icon="close" />}
                         onClick={closePlayer}
@@ -75,7 +54,4 @@ const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
         );
     }
 );
-
 PlayBox.displayName = "PlayBox";
-
-export default PlayBox;

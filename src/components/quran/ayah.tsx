@@ -14,7 +14,7 @@ interface AyahProps extends CardProps {
     onRightClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Ayah = forwardRef<HTMLDivElement, AyahProps>(
+export const Ayah = forwardRef<HTMLDivElement, AyahProps>(
     (
         {
             number,
@@ -137,5 +137,3 @@ const AyahNumber = ({ number }: { number: number }) => {
 
     return <span>{`﴿${toArabic(number)}﴾ `}</span>;
 };
-
-export default Ayah;

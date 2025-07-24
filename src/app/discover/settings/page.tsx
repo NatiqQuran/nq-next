@@ -1,8 +1,8 @@
 "use client";
 
 import { Container, H1, Row, Select, Spacer } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
-import ResetButton from "@/components/resetButton";
+import { useStorage } from "@/contexts/storageContext";
+import { ResetButton } from "@/components";
 
 const Page = () => {
     const { storage, setStorage } = useStorage();

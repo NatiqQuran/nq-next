@@ -3,9 +3,9 @@
 import { forwardRef } from "react";
 import Link from "next/link";
 import { Button, ButtonProps } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
+import { useStorage } from "@/contexts/storageContext";
 
-const LastReadingButton = forwardRef<HTMLButtonElement, ButtonProps>(
+export const LastReadingButton = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ disabled, children, ...restProps }, ref) => {
         const { storage } = useStorage();
 
@@ -27,7 +27,4 @@ const LastReadingButton = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-
 LastReadingButton.displayName = "LastReadingButton";
-
-export default LastReadingButton;

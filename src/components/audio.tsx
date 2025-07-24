@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useStorage } from "@/context/storageContext";
+import { useStorage } from "@/contexts/storageContext";
 
 const Audio = (
     props: Omit<React.HTMLAttributes<HTMLAudioElement>, "style">

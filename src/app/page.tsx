@@ -1,20 +1,18 @@
 import { Main, Screen } from "@yakad/ui";
-import { Xbackground, XgetStart } from "@yakad/x";
-
-import { IntroAppBar, IntroFooter, IntroGetStartBox } from "./utils";
-import LogoIcon from "./logoicon";
+import { Xbackground } from "@yakad/x";
+import AppBarWrapper from "./appBarWrapper";
+import XgetStartWrapper from "./xgetStartWrapper";
+import FooterWrapper from "./footerWrapper";
 
 const Page = () => (
     <Screen>
-        <IntroAppBar />
+        <AppBarWrapper />
         <Main>
             <Xbackground variant="dotted">
-                <XgetStart logo={<LogoIcon />}>
-                    <IntroGetStartBox />
-                </XgetStart>
+                <XgetStartWrapper />
             </Xbackground>
         </Main>
-        <IntroFooter />
+        <FooterWrapper />
     </Screen>
 );
 

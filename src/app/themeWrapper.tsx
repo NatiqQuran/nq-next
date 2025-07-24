@@ -2,7 +2,7 @@
 
 import { forwardRef } from "react";
 import { Theme, ThemeProps } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
+import { useStorage } from "@/contexts/storageContext";
 
 const ThemeWrapper = forwardRef<
     HTMLDivElement,
@@ -22,7 +22,6 @@ const ThemeWrapper = forwardRef<
         </Theme>
     );
 });
-
 ThemeWrapper.displayName = "ThemeWrapper";
 
 export default ThemeWrapper;

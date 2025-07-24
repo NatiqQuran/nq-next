@@ -15,14 +15,17 @@ import {
     P,
     Text,
 } from "@yakad/ui";
-import GoBackButton from "@/components/goBackButton";
-import FindBar from "./(components)/findBar";
-import PageDivider from "./(components)/pageDivider";
-import MushafOptionsPopup from "./(components)/popupMushafOptions";
-import FindPopup from "./(components)/popupFind";
-import MorePopup from "./(components)/popupMore";
-import Ayah from "./(components)/ayah/ayah";
-import FooterWrapper from "./footer";
+import {
+    Ayah,
+    FindBar,
+    FindPopup,
+    GoBackButton,
+    MorePopup,
+    MushafOptionsPopup,
+    PageDivider,
+    SurahPeriodIcon,
+} from "@/components";
+import FooterWrapper from "./footerWrappers";
 
 const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
@@ -67,7 +70,7 @@ const Page = () => {
                     />
                     <Container size="sm" align="center">
                         <Row>
-                            {/* <SurahPeriodIcon period="makki" /> */}
+                            <SurahPeriodIcon variant="filled" period="makki" />
                             <H2 title="Surah name" variant="heading6">
                                 1. Al-Fatihah
                             </H2>

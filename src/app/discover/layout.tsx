@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button, Container, Footer, Main, Screen } from "@yakad/ui";
 import Symbol, { IconCode } from "@yakad/symbols";
-import { useStorage } from "@/context/storageContext";
-import PlayBox from "@/components/playBox";
+import { useStorage } from "@/contexts/storageContext";
+import { PlayBox } from "@/components";
 
 interface FooterLink {
     title: string;

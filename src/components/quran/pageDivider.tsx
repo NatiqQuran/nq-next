@@ -4,7 +4,7 @@ import { Row, RowProps } from "@yakad/ui";
 interface PageDividerProps extends RowProps {
     pagenumber: number;
 }
-const PageDivider = forwardRef<HTMLDivElement, PageDividerProps>(
+export const PageDivider = forwardRef<HTMLDivElement, PageDividerProps>(
     ({ pagenumber, ...restProps }, ref) => {
         return (
             <Row
@@ -25,5 +25,3 @@ const PageDivider = forwardRef<HTMLDivElement, PageDividerProps>(
     }
 );
 PageDivider.displayName = "PageDivider";
-
-export default PageDivider;

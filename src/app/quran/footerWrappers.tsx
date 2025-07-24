@@ -3,7 +3,7 @@
 import { forwardRef, useState } from "react";
 import { Button, Footer, FooterProps } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
-import PlayOptionsPopup from "./(components)/popupPlayOptions";
+import { PlayOptionsPopup } from "@/components";
 
 const FooterWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
     ({ ...restProps }, ref) => {
@@ -62,7 +62,6 @@ const FooterWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
         );
     }
 );
-
 FooterWrapper.displayName = "FooterWrapper";
 
 export default FooterWrapper;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { StorageProvider } from "@/context/storageContext";
+import { StorageProvider } from "@/contexts/storageContext";
 import ThemeWrapper from "./themeWrapper";
-import Audio from "./audio";
+import Audio from "../components/audio";
 
 export const runtime = "edge";
 

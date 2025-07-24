@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { useRouter } from "next/navigation";
 import { Button, ButtonProps } from "@yakad/ui";
 
-const GoBackButton = forwardRef<HTMLButtonElement, ButtonProps>(
+export const GoBackButton = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ onClick, ...props }, ref) => {
         const router = useRouter();
 
@@ -24,7 +24,4 @@ const GoBackButton = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-
 GoBackButton.displayName = "GoBackButton";
-
-export default GoBackButton;
