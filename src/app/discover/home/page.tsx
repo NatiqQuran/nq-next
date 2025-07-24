@@ -1,5 +1,4 @@
 import { Button, Container, Row, H1, H2, P } from "@yakad/ui";
-
 import LastReadingButton from "@/components/lastReadingButton";
 
 const Page = () => {
@@ -15,13 +14,16 @@ const Page = () => {
             <Container size="md">
                 <H2 variant="heading4">Recomended</H2>
                 <Row overflow="scroll">
-                    <LastReadingButton>Continue reading</LastReadingButton>
+                    <LastReadingButton variant="outlined">
+                        Continue reading
+                    </LastReadingButton>
                     <Button variant="outlined">Yasin</Button>
                     <Button variant="outlined">Ayat Al-Kursi</Button>
                 </Row>
             </Container>
             <Container size="md">
                 <H2 variant="heading4">Random</H2>
+                {/* <RandomSurahButton /> */}
                 <P>Tabs: random Ayah, Surah, Page</P>
                 <P>A mechanism of scrolling to find a random ayyah</P>
                 <P>

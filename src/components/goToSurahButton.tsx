@@ -1,23 +1,28 @@
+import { forwardRef } from "react";
 import Link from "next/link";
 import { SurahsListResponseData } from "@ntq/sdk";
-import { Button } from "@yakad/ui";
+import { Button, ButtonProps } from "@yakad/ui";
 
-interface RandomSurahButtonProps {
+interface RandomSurahButtonProps extends ButtonProps {
     surahList: SurahsListResponseData;
     surahNumber: number;
 }
 
-const GoToSurahButton = (props: RandomSurahButtonProps) => {
-    return (
+const GoToSurahButton = forwardRef<HTMLButtonElement, RandomSurahButtonProps>(
+    ({ ...props }, ref) => (
         <Link
-            href={`/quran/${props.surahList[props.surahNumber - 1].uuid}`}
+            href={`/quran?surah_uuid=${
+                props.surahList[props.surahNumber - 1].uuid
+            }`}
             passHref
         >
-            <Button variant="outlined">
+            <Button ref={ref} {...props}>
                 {props.surahList[props.surahNumber - 1].names[0].name}
             </Button>
         </Link>
-    );
-};
+    )
+);
+
+GoToSurahButton.displayName = "GoToSurahButton";
 
 export default GoToSurahButton;

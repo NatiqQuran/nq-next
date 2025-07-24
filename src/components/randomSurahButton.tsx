@@ -1,25 +1,31 @@
-// import { useNavigate } from "react-router-dom";
-// import { SurahListResponseData } from "@ntq/sdk";
-// import { Button } from "@yakad/ui";
+import { forwardRef } from "react";
+import Link from "next/link";
+import { SurahsListResponseData } from "@ntq/sdk";
+import { Button, ButtonProps } from "@yakad/ui";
 
-// interface RandomSurahButtonProps {
-//     surahList: SurahListResponseData;
-// }
+interface RandomSurahButtonProps extends ButtonProps {
+    surahList: SurahsListResponseData;
+}
 
-// const RandomSurahButton = (props: RandomSurahButtonProps) => {
-//     const navigate = useNavigate();
-//     const surahLength = props.surahList.length;
+const RandomSurahButton = forwardRef<HTMLButtonElement, RandomSurahButtonProps>(
+    ({ surahList, children, ...restProps }, ref) => {
+        const surahLength = surahList.length;
 
-//     const handleClick = () => {
-//         const randomNumber = Math.floor(Math.random() * surahLength);
-//         navigate("/quran/" + props.surahList[randomNumber].uuid);
-//     };
+        const randomNumber = Math.floor(Math.random() * surahLength);
 
-//     return (
-//         <Button variant="outlined" onClick={handleClick}>
-//             Random Surah
-//         </Button>
-//     );
-// };
+        return (
+            <Link
+                href={`/quran?surah_uuid=${surahList[randomNumber].uuid}`}
+                passHref
+            >
+                <Button ref={ref} {...restProps}>
+                    {children || "Random Surah"}
+                </Button>
+            </Link>
+        );
+    }
+);
 
-// export default RandomSurahButton;
+RandomSurahButton.displayName = "RandomSurahButton";
+
+export default RandomSurahButton;

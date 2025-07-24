@@ -103,8 +103,8 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                     <Select
                         title="Speed"
                         placeholder="Speed"
-                        name="speed"
-                        value={storage.options.speed}
+                        name="playBackRate"
+                        value={storage.options.playBackRate}
                         onChange={handleSelectChange}
                     >
                         <option value={0.5}>0.5x</option>

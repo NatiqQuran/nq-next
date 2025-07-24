@@ -22,6 +22,7 @@ const ThemeWrapper = forwardRef<
         </Theme>
     );
 });
+
 ThemeWrapper.displayName = "ThemeWrapper";
 
 export default ThemeWrapper;

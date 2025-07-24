@@ -2,12 +2,12 @@
 
 import { forwardRef } from "react";
 import { Button, ButtonProps, DarkStyle } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
 import Symbol, { IconCode } from "@yakad/symbols";
+import { useStorage } from "@/context/storageContext";
 
 const order: DarkStyle[] = ["system", "light", "dark"];
 
-const stylesMap: Record<
+const optionsMap: Record<
     DarkStyle,
     { name: string; title: string; icon: IconCode }
 > = {
@@ -28,40 +28,43 @@ const stylesMap: Record<
     },
 };
 
-const DarkStyleButton = forwardRef<
-    HTMLButtonElement,
-    Omit<ButtonProps, "icon" | "onClick" | "title">
->(({ children, ...props }, ref) => {
-    const { storage, setStorage } = useStorage();
+const DarkStyleButton = forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ title, icon, onClick, children, ...props }, ref) => {
+        const { storage, setStorage } = useStorage();
 
-    const currentStyle: DarkStyle = storage?.settings?.darkStyle || "system";
+        const currentOption: DarkStyle =
+            storage?.settings?.darkStyle || "system";
 
-    const toggleDarkStyle = () => {
-        const currentIndex = order.indexOf(currentStyle);
-        const nextIndex = (currentIndex + 1) % order.length;
-        const nextStyle = order[nextIndex];
+        const toggleOption = () => {
+            const currentIndex = order.indexOf(currentOption);
+            const nextIndex = (currentIndex + 1) % order.length;
+            const nextOption = order[nextIndex];
 
-        setStorage((prev) => ({
-            ...prev,
-            settings: {
-                ...prev.settings,
-                darkStyle: nextStyle,
-            },
-        }));
-    };
+            setStorage((prev) => ({
+                ...prev,
+                settings: {
+                    ...prev.settings,
+                    darkStyle: nextOption,
+                },
+            }));
+        };
 
-    return (
-        <Button
-            ref={ref}
-            {...props}
-            title={stylesMap[currentStyle].title}
-            icon={<Symbol icon={stylesMap[currentStyle].icon} />}
-            onClick={toggleDarkStyle}
-        >
-            {children || stylesMap[currentStyle].name}
-        </Button>
-    );
-});
+        return (
+            <Button
+                ref={ref}
+                {...props}
+                title={title || optionsMap[currentOption].title}
+                icon={icon || <Symbol icon={optionsMap[currentOption].icon} />}
+                onClick={(e) => {
+                    toggleOption();
+                    onClick?.(e);
+                }}
+            >
+                {children || optionsMap[currentOption].name}
+            </Button>
+        );
+    }
+);
 
 DarkStyleButton.displayName = "DarkStyleButton";
 

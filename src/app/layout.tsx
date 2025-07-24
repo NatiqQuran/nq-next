@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { StorageProvider } from "@/context/storageContext";
 import ThemeWrapper from "./themeWrapper";
+import Audio from "./audio";
 
 export const runtime = "edge";
 
@@ -9,11 +10,11 @@ export const metadata: Metadata = {
     description: "Natiq main app",
 };
 
-function Layout({
+const Layout = ({
     children,
 }: Readonly<{
     children: React.ReactNode;
-}>) {
+}>) => {
     return (
         <html lang="en">
             <head>
@@ -29,10 +30,11 @@ function Layout({
             <body>
                 <StorageProvider>
                     <ThemeWrapper>{children}</ThemeWrapper>
+                    <Audio />
                 </StorageProvider>
             </body>
         </html>
     );
-}
+};
 
 export default Layout;

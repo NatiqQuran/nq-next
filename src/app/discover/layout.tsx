@@ -4,8 +4,8 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button, Container, Footer, Main, Screen } from "@yakad/ui";
 import Symbol, { IconCode } from "@yakad/symbols";
-
-import Player from "@/components/player";
+import { useStorage } from "@/context/storageContext";
+import PlayBox from "@/components/playBox";
 
 interface FooterLink {
     title: string;
@@ -19,22 +19,26 @@ const footerLinks: FooterLink[] = [
     { title: "Settings", url: "settings", icon: "settings" },
 ];
 
-function Layout({ children }: { children: React.ReactNode }) {
+const Layout = ({ children }: { children: React.ReactNode }) => {
+    const { storage } = useStorage();
+
     const pathname = usePathname();
     const currentPage = pathname.split("/")[2]; // 'search', 'home', or 'library'
 
     return (
         <Screen>
             <Main>{children}</Main>
-            <Container
-                size="md"
-                style={{
-                    position: "sticky",
-                    bottom: "6rem",
-                }}
-            >
-                <Player />
-            </Container>
+            {storage.options.playBoxShow && (
+                <Container
+                    size="md"
+                    style={{
+                        position: "sticky",
+                        bottom: "6rem",
+                    }}
+                >
+                    <PlayBox />
+                </Container>
+            )}
             <Footer
                 position="sticky"
                 size="md"
@@ -61,6 +65,6 @@ function Layout({ children }: { children: React.ReactNode }) {
             </Footer>
         </Screen>
     );
-}
+};
 
 export default Layout;

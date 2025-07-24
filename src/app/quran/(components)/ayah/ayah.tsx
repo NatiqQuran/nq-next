@@ -2,10 +2,9 @@
 
 import { forwardRef, useRef, useState } from "react";
 import classNames from "classnames";
-import { Card, CardProps, P } from "@yakad/ui";
-
-import styles from "./ayah.module.css";
 import { Sajdah } from "@ntq/sdk";
+import { Card, CardProps, P } from "@yakad/ui";
+import styles from "./ayah.module.css";
 
 interface AyahProps extends CardProps {
     number: number;
@@ -107,7 +106,7 @@ const Ayah = forwardRef<HTMLDivElement, AyahProps>(
                     </P>
                 </div>
                 <div>
-                    <P variant="body4">Translation text</P>
+                    <P variant="body4">Translation text{` (${number})`}</P>
                 </div>
             </Card>
         );

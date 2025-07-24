@@ -6,7 +6,6 @@ import {
     AppBar,
     Button,
     Container,
-    Footer,
     Main,
     Row,
     Screen,
@@ -20,17 +19,15 @@ import GoBackButton from "@/components/goBackButton";
 import FindBar from "./(components)/findBar";
 import PageDivider from "./(components)/pageDivider";
 import MushafOptionsPopup from "./(components)/popupMushafOptions";
-import PlayOptionsPopup from "./(components)/popupPlayOptions";
 import FindPopup from "./(components)/popupFind";
 import MorePopup from "./(components)/popupMore";
 import Ayah from "./(components)/ayah/ayah";
+import FooterWrapper from "./footer";
 
 const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
         useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
-        useState<boolean>(false);
-    const [isPlayOptionsPopupVisible, setIsPlayOptionsPopupVisible] =
         useState<boolean>(false);
     const [isMushafOptionsPopupVisible, setIsMushafOptionsPopupVisible] =
         useState<boolean>(false);
@@ -102,44 +99,7 @@ const Page = () => {
                     <Ayah number={15} />
                 </Container>
             </Main>
-            <Footer
-                position="sticky"
-                size="md"
-                blur
-                style={{
-                    borderTop:
-                        "0.3rem solid rgb(var(--primaryColor,11 87 208))",
-                    height: "7rem",
-                    justifyContent: "space-evenly",
-                }}
-            >
-                <Button
-                    title="Options"
-                    icon={<Symbol icon="tune" />}
-                    onClick={() => setIsPlayOptionsPopupVisible(true)}
-                />
-                <Button
-                    title="Previous Ayah"
-                    icon={<Symbol icon="chevron_left" />}
-                />
-                {true ? (
-                    <Button
-                        title="Play"
-                        variant="filled"
-                        icon={<Symbol icon="play_arrow" />}
-                    />
-                ) : (
-                    <Button title="Pause" icon={<Symbol icon="pause" />} />
-                )}
-                <Button
-                    title="Next Ayah"
-                    icon={<Symbol icon="chevron_right" />}
-                />
-                <Button
-                    title="Fillscreen"
-                    icon={<Symbol icon="fullscreen" />}
-                />
-            </Footer>
+            <FooterWrapper />
             {isFindPopupVisible && (
                 <FindPopup
                     heading="Find"
@@ -157,14 +117,6 @@ const Page = () => {
                     heading="Mushaf options"
                     onclosebuttonclick={() =>
                         setIsMushafOptionsPopupVisible(false)
-                    }
-                />
-            )}
-            {isPlayOptionsPopupVisible && (
-                <PlayOptionsPopup
-                    heading="Playing options"
-                    onclosebuttonclick={() =>
-                        setIsPlayOptionsPopupVisible(false)
                     }
                 />
             )}

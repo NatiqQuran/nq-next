@@ -1,27 +1,32 @@
 "use client";
 
 import { forwardRef } from "react";
-import { useRouter } from "next/navigation";
-
+import Link from "next/link";
 import { Button, ButtonProps } from "@yakad/ui";
+import { useStorage } from "@/context/storageContext";
 
-const LastReadingButton = forwardRef<
-    HTMLButtonElement,
-    Omit<ButtonProps, "onClick" | "disabled">
->(({ children, ...restProps }, ref) => {
-    const router = useRouter();
+const LastReadingButton = forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ disabled, children, ...restProps }, ref) => {
+        const { storage } = useStorage();
 
-    return (
-        <Button
-            ref={ref}
-            {...restProps}
-            disabled //if last reading is not exist in local storage
-            onClick={() => router.push} //Do what you want
-        >
-            {children || "Last reading"}
-        </Button>
-    );
-});
+        return (
+            <Link
+                href={`/quran?surah_uuid=${storage.selectedAyahUUID}`}
+                passHref
+            >
+                <Button
+                    ref={ref}
+                    {...restProps}
+                    disabled={
+                        disabled || storage.selectedAyahUUID === undefined
+                    }
+                >
+                    {children || "Last reading"}
+                </Button>
+            </Link>
+        );
+    }
+);
 
 LastReadingButton.displayName = "LastReadingButton";
 
