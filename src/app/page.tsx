@@ -1,3 +1,5 @@
+"use client";
+
 import { Main, Screen } from "@yakad/ui";
 import { Xbackground } from "@yakad/x";
 import AppBarWrapper from "./appBarWrapper";

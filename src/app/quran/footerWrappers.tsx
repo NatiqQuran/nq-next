@@ -3,7 +3,7 @@
 import { forwardRef, useState } from "react";
 import { Button, Footer, FooterProps } from "@yakad/ui";
 import Symbol from "@yakad/symbols";
-import { PlayOptionsPopup } from "@/components";
+import { PlayButton, PlayOptionsPopup } from "@/components";
 
 const FooterWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
     ({ ...restProps }, ref) => {
@@ -34,15 +34,7 @@ const FooterWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
                         title="Previous Ayah"
                         icon={<Symbol icon="chevron_left" />}
                     />
-                    {true ? (
-                        <Button
-                            title="Play"
-                            variant="filled"
-                            icon={<Symbol icon="play_arrow" />}
-                        />
-                    ) : (
-                        <Button title="Pause" icon={<Symbol icon="pause" />} />
-                    )}
+                    <PlayButton variant="filled" />
                     <Button
                         title="Next Ayah"
                         icon={<Symbol icon="chevron_right" />}
