@@ -9,7 +9,7 @@ import {
     Text,
 } from "@yakad/ui";
 
-const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
+export const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ ...restProps }, ref) => (
         <Popup ref={ref} {...restProps}>
             <Text variant="heading5">By Surah</Text>
@@ -44,5 +44,3 @@ const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
     )
 );
 FindPopup.displayName = "FindPopup";
-
-export default FindPopup;

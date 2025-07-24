@@ -26,11 +26,12 @@ interface Options {
     translationByWordUUID: string;
 
     playing: boolean;
+    playBoxShow: boolean;
     recitationStatus: boolean;
     recitationUUID: string;
     ayahRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
     delay: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10; //sec
-    speed: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2;
+    playBackRate: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2;
     limitMode:
         | "continuous"
         | "surah"
@@ -47,7 +48,7 @@ interface Options {
     autoScroll: boolean;
 }
 
-type selectedAyahUUID = string;
+type selectedAyahUUID = string | undefined;
 
 // ----- 2. Combined Storage type -----
 interface Storage {
@@ -72,11 +73,12 @@ const defaultStorage: Storage = {
         translationByWordUUID: "UUID",
 
         playing: false,
+        playBoxShow: false,
         recitationStatus: true,
         recitationUUID: "UUID",
         ayahRepeat: 0,
         delay: 0,
-        speed: 1,
+        playBackRate: 1,
         limitMode: "continuous",
         limitRange: 1,
         limitRepeat: 0,
@@ -115,6 +117,7 @@ export const StorageProvider = ({ children }: { children: ReactNode }) => {
                         ...prev.options,
                         ...parsed.options,
                         playing: false, // force playing to false on load
+                        playBoxShow: storage.selectedAyahUUID !== undefined,
                     },
                 }));
             } catch (error) {

@@ -1,4 +1,4 @@
-export default function LogoIcon() {
+const NatiqLogoIcon = () => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -11,4 +11,6 @@ export default function LogoIcon() {
             <polygon points="124.16,320.15 172.79,253.2 500,471.39 827.21,253.2 875.84,320.15 500,537.15 " />
         </svg>
     );
-}
+};
+
+export default NatiqLogoIcon;

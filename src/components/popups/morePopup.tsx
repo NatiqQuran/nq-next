@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Button, Popup, PopupProps, Stack, Text } from "@yakad/ui";
 
-const MorePopup = forwardRef<HTMLDivElement, PopupProps>(
+export const MorePopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ onclosebuttonclick, ...restProps }, ref) => (
         <Popup
             ref={ref}
@@ -21,5 +21,3 @@ const MorePopup = forwardRef<HTMLDivElement, PopupProps>(
     )
 );
 MorePopup.displayName = "MorePopup";
-
-export default MorePopup;

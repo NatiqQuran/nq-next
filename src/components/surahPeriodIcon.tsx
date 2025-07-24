@@ -1,16 +1,33 @@
 import { SvgIcon } from "@yakad/ui";
-import Madineh from "../assets/svg/madineh - filled.svg";
-import Makkah from "../assets/svg/makkah - filled.svg";
+import MadinehFilledIcon from "@/assets/svg/madinehFilledIcon";
+import MadinehOutlinedIcon from "@/assets/svg/madinehOutlinedIcon";
+import MakkahOutlinedIcon from "@/assets/svg/makkahOutlinedIcon";
+import MakkahFilledIcon from "@/assets/svg/makkahFilledIcon";
 
-const SurahPeriodIcon = ({ period }: { period: "makki" | "madani" }) =>
-    period === "makki" ? (
-        <SvgIcon title="Makki" style={{ cursor: "help" }}>
-            <Makkah />
-        </SvgIcon>
-    ) : (
-        <SvgIcon title="Madani" style={{ cursor: "help" }}>
-            <Madineh />
+export const SurahPeriodIcon = ({
+    variant = "outlined",
+    period,
+}: {
+    variant?: "outlined" | "filled";
+    period: "makki" | "madani";
+}) => {
+    const isFilled = variant === "filled";
+
+    const Icon =
+        period === "makki"
+            ? isFilled
+                ? MakkahFilledIcon
+                : MakkahOutlinedIcon
+            : isFilled
+            ? MadinehFilledIcon
+            : MadinehOutlinedIcon;
+
+    return (
+        <SvgIcon
+            title={period === "makki" ? "Makki" : "Madani"}
+            style={{ cursor: "help" }}
+        >
+            <Icon />
         </SvgIcon>
     );
-
-export default SurahPeriodIcon;
+};

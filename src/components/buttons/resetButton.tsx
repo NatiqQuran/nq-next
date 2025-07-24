@@ -3,9 +3,10 @@
 import { forwardRef, useState } from "react";
 import { Button, ButtonProps } from "@yakad/ui";
 
-const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ children, variant = "outlined", onClick, ...props }, ref) => {
+export const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ children, onClick, ...props }, ref) => {
         const [reseting, setReseting] = useState(false);
+
         const handleReset = () => {
             setReseting(true);
             localStorage.clear();
@@ -17,7 +18,6 @@ const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
             <Button
                 ref={ref}
                 {...props}
-                variant={variant}
                 onClick={(e) => {
                     onClick?.(e);
                     handleReset();
@@ -29,7 +29,4 @@ const ResetButton = forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-
 ResetButton.displayName = "ResetButton";
-
-export default ResetButton;

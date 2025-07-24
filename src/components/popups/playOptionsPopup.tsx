@@ -8,9 +8,9 @@ import {
     Spacer,
     Text,
 } from "@yakad/ui";
-import { useStorage } from "@/context/storageContext";
+import { useStorage } from "@/contexts/storageContext";
 
-const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
+export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
     ({ ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
         const handleSelectChange = (
@@ -103,8 +103,8 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                     <Select
                         title="Speed"
                         placeholder="Speed"
-                        name="speed"
-                        value={storage.options.speed}
+                        name="playBackRate"
+                        value={storage.options.playBackRate}
                         onChange={handleSelectChange}
                     >
                         <option value={0.5}>0.5x</option>
@@ -204,7 +204,4 @@ const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
         );
     }
 );
-
 PlayOptionsPopup.displayName = "PlayOptionsPopup";
-
-export default PlayOptionsPopup;

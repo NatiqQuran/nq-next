@@ -10,9 +10,7 @@ import {
     Stack,
     Hr,
 } from "@yakad/ui";
-
-// import RandomSurahButton from "../../components/randomSurahButton";
-import GoToSurahButton from "../../../components/goToSurahButton";
+import { GoToSurahButton } from "@/components";
 
 const RelatedSurahs = (props: { surahList: SurahsListResponseData }) => (
     <Row style={{ marginTop: "2rem" }} overflow="scroll">
