@@ -54,9 +54,7 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                 <Select
                     title="Reciter - Reciting type"
                     placeholder="Reciter"
-                    name="recitationUUID"
-                    value={storage.options.recitationUUID}
-                    onChange={handleSelectChange}
+                    disabled
                 >
                     <option value="uuid">Abd-OlBasit</option>
                 </Select>
@@ -184,13 +182,7 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                         onChange={handleCheckBoxChange}
                     />
                 </Row>
-                <Select
-                    title="Announcer"
-                    placeholder="Announcer"
-                    name="announcationUUID"
-                    value={storage.options.announcationUUID}
-                    onChange={handleSelectChange}
-                >
+                <Select title="Announcer" placeholder="Announcer" disabled>
                     <option value="">Mr x</option>
                 </Select>
                 <Text variant="heading5">Auto scroll</Text>

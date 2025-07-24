@@ -15,6 +15,7 @@ export const PlayButton = forwardRef<HTMLButtonElement, ButtonProps>(
                 options: {
                     ...prev.options,
                     playing: !storage.options.playing,
+                    playBoxShow: true,
                 },
             }));
         };

@@ -11,14 +11,14 @@ export const LastReadingButton = forwardRef<HTMLButtonElement, ButtonProps>(
 
         return (
             <Link
-                href={`/quran?surah_uuid=${storage.selectedAyahUUID}`}
+                href={`/quran?ayah_uuid=${storage.selected.ayahUUID}`}
                 passHref
             >
                 <Button
                     ref={ref}
                     {...restProps}
                     disabled={
-                        disabled || storage.selectedAyahUUID === undefined
+                        disabled || storage.selected.ayahUUID === undefined
                     }
                 >
                     {children || "Last reading"}
