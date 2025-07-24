@@ -62,7 +62,10 @@ export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                     <option value="uuid">Mr unknown</option>
                 </Select>
                 <Text variant="heading5">Theme</Text>
-                <Row align="center" style={{ justifyContent: "space-evenly" }}>
+                <Row
+                    align="center"
+                    style={{ justifyContent: "space-evenly", flexWrap: "wrap" }}
+                >
                     <DarkStyleButton
                         variant="filled"
                         style={{ width: "14rem" }}

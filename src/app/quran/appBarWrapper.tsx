@@ -14,31 +14,33 @@ const AppBarWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
             useState<boolean>(false);
 
         return (
-            <AppBar
-                ref={ref}
-                {...restProps}
-                position={position}
-                size={size}
-                blur={blur}
-                style={{
-                    ...style,
-                    flexWrap: "nowrap",
-                }}
-            >
-                <GoBackButton
-                    title="Go back"
-                    icon={<Symbol icon="arrow_back" />}
-                />
-                <Spacer />
-                <H1 variant="heading4" title="Natiq Quran">
-                    Natiq
-                </H1>
-                <Spacer />
-                <Button
-                    title="Mushaf Options"
-                    icon={<Symbol type="outlined" icon="settings" />}
-                    onClick={() => setIsMushafOptionsPopupVisible(true)}
-                />
+            <>
+                <AppBar
+                    ref={ref}
+                    {...restProps}
+                    position={position}
+                    size={size}
+                    blur={blur}
+                    style={{
+                        ...style,
+                        flexWrap: "nowrap",
+                    }}
+                >
+                    <GoBackButton
+                        title="Go back"
+                        icon={<Symbol icon="arrow_back" />}
+                    />
+                    <Spacer />
+                    <H1 variant="heading4" title="Natiq Quran">
+                        Natiq
+                    </H1>
+                    <Spacer />
+                    <Button
+                        title="Mushaf Options"
+                        icon={<Symbol type="outlined" icon="settings" />}
+                        onClick={() => setIsMushafOptionsPopupVisible(true)}
+                    />
+                </AppBar>
                 {isMushafOptionsPopupVisible && (
                     <MushafOptionsPopup
                         heading="Mushaf options"
@@ -47,7 +49,7 @@ const AppBarWrapper = forwardRef<HTMLDivElement, Omit<FooterProps, "children">>(
                         }
                     />
                 )}
-            </AppBar>
+            </>
         );
     }
 );
