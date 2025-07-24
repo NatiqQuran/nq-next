@@ -34,12 +34,12 @@ const navListItems: NavListItem[] = [
 ];
 
 const AppBarWrapper = forwardRef<HTMLDivElement, AppBarProps>(
-    ({ ...restProps }) => {
+    ({ ...restProps }, ref) => {
         const [navOpen, setNavOpen] = useState<boolean>(false);
 
         return (
             <>
-                <AppBar {...restProps}>
+                <AppBar ref={ref} {...restProps}>
                     <Display maxWidth="md">
                         <Button
                             icon={<Symbol icon="menu" />}
@@ -94,30 +94,27 @@ const AppBarWrapper = forwardRef<HTMLDivElement, AppBarProps>(
 );
 AppBarWrapper.displayName = "AppBarWrapper";
 
-const NavigationWrapper = forwardRef<HTMLElement, NavigationProps>(
-    ({ ...restProps }) => {
-        return (
-            <Navigation {...restProps}>
-                <List direction="column" style={{ padding: "0 2rem" }}>
-                    {navListItems.map((item, index) => (
-                        <ListItem key={index}>
-                            <Link href={item.href} target="_blank">
-                                <Button
-                                    variant="link"
-                                    style={{ width: "100%" }}
-                                    borderstyle="semi"
-                                    iconposition="end"
-                                >
-                                    {item.name}
-                                </Button>
-                            </Link>
-                        </ListItem>
-                    ))}
-                </List>
-            </Navigation>
-        );
-    }
-);
-NavigationWrapper.displayName = "NavigationWrapper";
+const NavigationWrapper = ({ ...restProps }: NavigationProps) => {
+    return (
+        <Navigation {...restProps}>
+            <List direction="column" style={{ padding: "0 2rem" }}>
+                {navListItems.map((item, index) => (
+                    <ListItem key={index}>
+                        <Link href={item.href} target="_blank">
+                            <Button
+                                variant="link"
+                                style={{ width: "100%" }}
+                                borderstyle="semi"
+                                iconposition="end"
+                            >
+                                {item.name}
+                            </Button>
+                        </Link>
+                    </ListItem>
+                ))}
+            </List>
+        </Navigation>
+    );
+};
 
 export default AppBarWrapper;
