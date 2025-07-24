@@ -2,39 +2,31 @@
 
 import { forwardRef } from "react";
 import { Button, ButtonProps, ThemeColor } from "@yakad/ui";
-import Symbol, { IconCode } from "@yakad/symbols";
+import Symbol from "@yakad/symbols";
 import { useStorage } from "@/contexts/storageContext";
 
 const order: ThemeColor[] = ["blue", "green", "red", "yellow", "purple"];
 
-const optionsMap: Record<
-    ThemeColor,
-    { name: string; title: string; icon: IconCode }
-> = {
+const optionsMap: Record<ThemeColor, { name: string; title: string }> = {
     blue: {
         name: "Blue",
-        title: "Switch to yellow",
-        icon: "circle",
+        title: "Switch to green",
     },
     green: {
         name: "Green",
-        title: "Switch to blue",
-        icon: "circle",
+        title: "Switch to red",
     },
     red: {
         name: "Red",
-        title: "Switch to green",
-        icon: "circle",
+        title: "Switch to yellow",
     },
     yellow: {
         name: "Yellow",
-        title: "Switch red",
-        icon: "circle",
+        title: "Switch purple",
     },
     purple: {
         name: "Purple",
-        title: "Switch to yellow",
-        icon: "circle",
+        title: "Switch to blue",
     },
 };
 
@@ -64,7 +56,7 @@ export const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
                 ref={ref}
                 {...props}
                 title={title || optionsMap[currentOption].title}
-                icon={icon || <Symbol icon={optionsMap[currentOption].icon} />}
+                icon={icon || <Symbol icon="circle" />}
                 onClick={(e) => {
                     toggleOption();
                     onClick?.(e);

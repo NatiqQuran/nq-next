@@ -21,14 +21,11 @@ interface Settings {
 interface Options {
     arabicFont: "test";
     arabicFontSize: "small" | "medium" | "large";
-    translationUUID: string;
     translationFontSize: "small" | "medium" | "large";
-    translationByWordUUID: string;
 
     playing: boolean;
     playBoxShow: boolean;
     recitationStatus: boolean;
-    recitationUUID: string;
     ayahRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
     delay: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10; //sec
     playBackRate: 0.25 | 0.5 | 0.75 | 1 | 1.25 | 1.5 | 1.75 | 2;
@@ -44,17 +41,21 @@ interface Options {
     limitRange: number;
     limitRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
     announcationStatus: boolean;
-    announcationUUID: string;
     autoScroll: boolean;
 }
-
-type selectedAyahUUID = string | undefined;
-
+interface Selected {
+    mushafUUID: string;
+    ayahUUID: string | undefined;
+    translationUUID: string;
+    translationByWordUUID: string;
+    recitationUUID: string;
+    announcationUUID: string;
+}
 // ----- 2. Combined Storage type -----
 interface Storage {
     settings: Settings;
     options: Options;
-    selectedAyahUUID: selectedAyahUUID;
+    selected: Selected;
 }
 
 // ----- 3. Default values -----
@@ -68,14 +69,11 @@ const defaultStorage: Storage = {
     options: {
         arabicFont: "test",
         arabicFontSize: "medium",
-        translationUUID: "UUID",
         translationFontSize: "medium",
-        translationByWordUUID: "UUID",
 
         playing: false,
         playBoxShow: false,
         recitationStatus: true,
-        recitationUUID: "UUID",
         ayahRepeat: 0,
         delay: 0,
         playBackRate: 1,
@@ -83,10 +81,16 @@ const defaultStorage: Storage = {
         limitRange: 1,
         limitRepeat: 0,
         announcationStatus: false,
-        announcationUUID: "UUID",
         autoScroll: true,
     },
-    selectedAyahUUID: "test",
+    selected: {
+        mushafUUID: "hafs",
+        ayahUUID: "test",
+        translationUUID: "UUID",
+        translationByWordUUID: "UUID",
+        recitationUUID: "UUID",
+        announcationUUID: "UUID",
+    },
 };
 
 // ----- 4. Context value type -----
@@ -117,7 +121,7 @@ export const StorageProvider = ({ children }: { children: ReactNode }) => {
                         ...prev.options,
                         ...parsed.options,
                         playing: false, // force playing to false on load
-                        playBoxShow: storage.selectedAyahUUID !== undefined,
+                        playBoxShow: storage.selected.ayahUUID !== undefined,
                     },
                 }));
             } catch (error) {

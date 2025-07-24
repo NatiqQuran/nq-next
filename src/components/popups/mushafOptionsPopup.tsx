@@ -44,21 +44,11 @@ export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                     </Select>
                 </Row>
                 <Text variant="heading5">Translate</Text>
-                <Select
-                    placeholder="Translation"
-                    name="translationUUID"
-                    value={storage.options.translationUUID}
-                    onChange={handleSelectChange}
-                >
+                <Select placeholder="Translation" disabled>
                     <option value="uuid">Mr unknown</option>
                 </Select>
                 <Text variant="heading5">By word</Text>
-                <Select
-                    placeholder="Translation"
-                    name="translationByWordUUID"
-                    value={storage.options.translationByWordUUID}
-                    onChange={handleSelectChange}
-                >
+                <Select placeholder="Translation" disabled>
                     <option value="uuid">Mr unknown</option>
                 </Select>
                 <Text variant="heading5">Theme</Text>

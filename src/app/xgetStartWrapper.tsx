@@ -1,18 +1,14 @@
 import Link from "next/link";
-import { forwardRef } from "react";
 import { Button, Row } from "@yakad/ui";
 import { XgetStart, XgetStartProps } from "@yakad/x";
 import Symbol from "@yakad/symbols";
 import LogoIcon from "@/assets/svg/natiqLogoIcon";
 
-const XgetStartWrapper = forwardRef<HTMLDivElement, XgetStartProps>(
-    ({ logo, ...restProps }) => (
-        <XgetStart {...restProps} logo={logo || <LogoIcon />}>
-            <IntroGetStartBox />
-        </XgetStart>
-    )
+const XgetStartWrapper = ({ logo, ...restProps }: XgetStartProps) => (
+    <XgetStart {...restProps} logo={logo || <LogoIcon />}>
+        <IntroGetStartBox />
+    </XgetStart>
 );
-XgetStartWrapper.displayName = "XgetStartWrapper";
 
 const IntroGetStartBox = () => {
     return (

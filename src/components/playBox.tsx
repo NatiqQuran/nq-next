@@ -14,6 +14,7 @@ export const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
                 ...prev,
                 options: {
                     ...prev.options,
+                    playing: false,
                     playBoxShow: false,
                 },
             }));
@@ -35,7 +36,7 @@ export const PlayBox = forwardRef<HTMLDivElement, Omit<CardProps, "children">>(
             >
                 <Row style={{ minHeight: "6rem" }}>
                     <Link
-                        href={`/quran?surah_uuid=${storage.selectedAyahUUID}`}
+                        href={`/quran?ayah_uuid=${storage.selected.ayahUUID}`}
                         passHref
                         style={{ flexGrow: 1 }}
                     >

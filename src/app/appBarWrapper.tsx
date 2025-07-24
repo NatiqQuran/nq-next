@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import {
     AppBar,
     Spacer,
@@ -32,67 +32,60 @@ const navListItems: NavListItem[] = [
         name: "Blog",
     },
 ];
+const AppBarWrapper = ({ ...restProps }: AppBarProps) => {
+    const [navOpen, setNavOpen] = useState<boolean>(false);
 
-const AppBarWrapper = forwardRef<HTMLDivElement, AppBarProps>(
-    ({ ...restProps }, ref) => {
-        const [navOpen, setNavOpen] = useState<boolean>(false);
-
-        return (
-            <>
-                <AppBar ref={ref} {...restProps}>
-                    <Display maxWidth="md">
-                        <Button
-                            icon={<Symbol icon="menu" />}
-                            onClick={() => setNavOpen(true)}
-                        />
-                    </Display>
-                    <SvgIcon size={5}>
-                        <LogoIcon />
-                    </SvgIcon>
-                    <h1
-                        style={{
-                            fontFamily: "arial",
-                            fontSize: "2.4rem",
-                            fontWeight: "normal",
-                            letterSpacing: "0.1rem",
-                        }}
-                    >
-                        Natiq
-                    </h1>
-                    <Display minWidth="md">
-                        <List>
-                            {navListItems.map((item, index) => (
-                                <ListItem key={index}>
-                                    <Link href={item.href} target="_blank">
-                                        <Button
-                                            variant="link"
-                                            style={{ width: "100%" }}
-                                        >
-                                            {item.name}
-                                        </Button>
-                                    </Link>
-                                </ListItem>
-                            ))}
-                        </List>
-                    </Display>
-                    <Spacer />
-                    <Link href="/discover/search" passHref>
-                        <Button
-                            variant="outlined"
-                            icon={<Symbol icon="search" />}
-                        >
-                            <Display minWidth="xs">Search</Display>
-                        </Button>
-                    </Link>
-                </AppBar>
-                <ClickOutsideListener onclickoutside={() => setNavOpen(false)}>
-                    <NavigationWrapper anchor="top" open={navOpen} />
-                </ClickOutsideListener>
-            </>
-        );
-    }
-);
-AppBarWrapper.displayName = "AppBarWrapper";
+    return (
+        <>
+            <AppBar {...restProps}>
+                <Display maxWidth="md">
+                    <Button
+                        icon={<Symbol icon="menu" />}
+                        onClick={() => setNavOpen(true)}
+                    />
+                </Display>
+                <SvgIcon size={5}>
+                    <LogoIcon />
+                </SvgIcon>
+                <h1
+                    style={{
+                        fontFamily: "arial",
+                        fontSize: "2.4rem",
+                        fontWeight: "normal",
+                        letterSpacing: "0.1rem",
+                    }}
+                >
+                    Natiq
+                </h1>
+                <Display minWidth="md">
+                    <List>
+                        {navListItems.map((item, index) => (
+                            <ListItem key={index}>
+                                <Link href={item.href} target="_blank">
+                                    <Button
+                                        variant="link"
+                                        style={{ width: "100%" }}
+                                    >
+                                        {item.name}
+                                    </Button>
+                                </Link>
+                            </ListItem>
+                        ))}
+                    </List>
+                </Display>
+                <Spacer />
+                <Link href="/discover/search" passHref>
+                    <Button variant="outlined" icon={<Symbol icon="search" />}>
+                        <Display minWidth="xs">Search</Display>
+                    </Button>
+                </Link>
+            </AppBar>
+            <ClickOutsideListener onclickoutside={() => setNavOpen(false)}>
+                <NavigationWrapper anchor="top" open={navOpen} />
+            </ClickOutsideListener>
+        </>
+    );
+};
 
 const NavigationWrapper = ({ ...restProps }: NavigationProps) => {
     return (
