@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button, ButtonProps } from "@yakad/ui";
 
 export const GoBackButton = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ onClick, ...props }, ref) => {
+    ({ onClick, ...restProps }, ref) => {
         const router = useRouter();
 
         const handleGoBack = () => {
@@ -15,7 +15,7 @@ export const GoBackButton = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Button
                 ref={ref}
-                {...props}
+                {...restProps}
                 onClick={(e) => {
                     handleGoBack();
                     onClick?.(e);

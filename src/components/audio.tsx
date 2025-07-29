@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useStorage } from "@/contexts/storageContext";
 
 const Audio = (
-    props: Omit<React.HTMLAttributes<HTMLAudioElement>, "style">
+    restProps: Omit<React.HTMLAttributes<HTMLAudioElement>, "style">
 ) => {
     const { storage, setStorage } = useStorage();
     const isPlaying = storage.options.playing;
@@ -42,7 +42,7 @@ const Audio = (
     return (
         <audio
             ref={audioRef}
-            {...props}
+            {...restProps}
             controls
             src="https://ia601507.us.archive.org/5/items/Tareq-Mohammad/001.mp3"
             style={{ display: "none" }}

@@ -31,7 +31,7 @@ const optionsMap: Record<ThemeColor, { name: string; title: string }> = {
 };
 
 export const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ title, icon, onClick, children, ...props }, ref) => {
+    ({ title, icon, onClick, children, ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
 
         const currentOption: ThemeColor =
@@ -54,7 +54,7 @@ export const ColorButton = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Button
                 ref={ref}
-                {...props}
+                {...restProps}
                 title={title || optionsMap[currentOption].title}
                 icon={icon || <Symbol icon="circle" />}
                 onClick={(e) => {
