@@ -29,7 +29,7 @@ const optionsMap: Record<
 };
 
 export const DarkStyleButton = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ title, icon, onClick, children, ...props }, ref) => {
+    ({ title, icon, onClick, children, ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
 
         const currentOption: DarkStyle =
@@ -52,7 +52,7 @@ export const DarkStyleButton = forwardRef<HTMLButtonElement, ButtonProps>(
         return (
             <Button
                 ref={ref}
-                {...props}
+                {...restProps}
                 title={title || optionsMap[currentOption].title}
                 icon={icon || <Symbol icon={optionsMap[currentOption].icon} />}
                 onClick={(e) => {

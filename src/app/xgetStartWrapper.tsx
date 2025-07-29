@@ -4,8 +4,8 @@ import { XgetStart, XgetStartProps } from "@yakad/x";
 import Symbol from "@yakad/symbols";
 import LogoIcon from "@/assets/svg/natiqLogoIcon";
 
-const XgetStartWrapper = ({ logo, ...restProps }: XgetStartProps) => (
-    <XgetStart {...restProps} logo={logo || <LogoIcon />}>
+const XgetStartWrapper = ({ ...restProps }: XgetStartProps) => (
+    <XgetStart {...restProps} logo={<LogoIcon />}>
         <IntroGetStartBox />
     </XgetStart>
 );
