@@ -8,6 +8,7 @@ import styles from "./ayah.module.css";
 
 interface AyahProps extends CardProps {
     number: number;
+    text: string;
     sajdah?: Sajdah;
     selected?: boolean;
     onHold?: () => void;
@@ -19,6 +20,7 @@ export const Ayah = forwardRef<HTMLDivElement, AyahProps>(
         {
             number,
             sajdah,
+            text,
             selected = false,
             onHold,
             onMouseDown,
@@ -95,12 +97,8 @@ export const Ayah = forwardRef<HTMLDivElement, AyahProps>(
             >
                 <div style={{ direction: "rtl", textAlign: "right" }}>
                     <P variant="body2">
-                        <span>کلمه </span>
-                        <span>کلمه </span>
-                        <span>کلمه </span>
-                        <span>کلمه </span>
-                        <span>کلمه </span>
-                        <span>کلمه </span>
+                        {/* TODO:‌ This doens't seem ok */}
+                        {text.split(" ").map((word,index) => <span key={index}>{`${word} `}</span>)}
                         <SajdahIcon sajdah={sajdah} />
                         <AyahNumber number={number} />
                     </P>

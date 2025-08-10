@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ControllerSurahs, SurahsListResponseData } from "@ntq/sdk";
+import { SurahsController, SurahsListResponseData } from "@ntq/sdk";
 import { filterArrayBySearch } from "@yakad/lib";
 import {
     InputField,
@@ -23,7 +23,7 @@ const Page = () => {
         useState<SurahsListResponseData>([]);
 
     useEffect(() => {
-        const controllerSurahs = new ControllerSurahs(connection);
+        const controllerSurahs = new SurahsController(connection);
 
         controllerSurahs
             .list({

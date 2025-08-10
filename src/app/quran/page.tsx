@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { Container, Main, Row, Screen, Spacer, H2, P, Text } from "@yakad/ui";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Container, Main, Row, Screen, Spacer, H2, P, Text, Loading } from "@yakad/ui";
 import {
     Ayah,
     FindBar,
@@ -12,12 +12,53 @@ import {
 } from "@/components";
 import FooterWrapper from "./footerWrappers";
 import AppBarWrapper from "./appBarWrapper";
+import { getAyahs } from "@/actions/getAyahs";
+import { AyahsListResponseData } from "@ntq/sdk";
 
 const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
         useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
         useState<boolean>(false);
+
+    const [page, setPage] = useState(0);
+    const [offset, setOffset] = useState(1);
+    const [limit, setLimit] = useState(20);
+    const [hasMore, setHasMore] = useState(true);
+    const loaderRef = useRef(null);
+    const [ayahs, setAyahs] = useState<AyahsListResponseData>([]);
+
+    useEffect(() => {
+        if (!loaderRef.current || !hasMore) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            if (entries[0].isIntersecting) {
+              setOffset(offset)
+              setLimit((prev) => prev + 5);
+            }
+          },
+          { threshold: 1 }
+        );
+
+        observer.observe(loaderRef.current);
+        return () => observer.disconnect();
+    }, [hasMore]);
+
+
+    const fetchItems = useCallback(async () => {
+        console.log(offset, limit)
+        getAyahs(offset, limit).then(res => setAyahs(res));
+        if (ayahs[ayahs.length - 1].number == 1){
+            setPage(prev => prev + 1)
+        }
+        setHasMore(true);
+    }, [limit]);
+
+
+    useEffect(() => {
+        fetchItems();
+    }, [fetchItems]);
 
     return (
         <Screen>
@@ -43,27 +84,17 @@ const Page = () => {
                         </Row>
                         <P variant="body1">بسم الله الرحن الرحیم</P>
                     </Container>
-                    <Ayah
-                        number={1}
-                        onHold={() => setIsMorePopupVisible(true)}
-                        onRightClick={() => setIsMorePopupVisible(true)}
-                    />
-                    <Ayah number={2} />
-                    <Ayah number={3} />
-                    <Ayah number={4} selected />
-                    <Ayah number={5} />
-                    <PageDivider pagenumber={2} />
-                    <Ayah number={6} />
-                    <Ayah number={7} sajdah="mustahab" />
-                    <Ayah number={8} sajdah="vajib" />
-                    <Ayah number={9} />
-                    <Ayah number={10} />
-                    <PageDivider pagenumber={3} />
-                    <Ayah number={11} />
-                    <Ayah number={12} />
-                    <Ayah number={13} />
-                    <Ayah number={14} />
-                    <Ayah number={15} />
+
+                    {ayahs?.map((ayah,index) => (
+                            <>
+                                {/* {ayah.number == 1 && <PageDivider pagenumber={page}/>} */}
+                                <Ayah key={index} text={ayah.text} number={ayah.number} />
+                            </>
+                        ))
+                    }
+
+                    {hasMore && <Loading ref={loaderRef} variant="dots" />}
+                    {!hasMore && <p>No more items</p>}
                 </Container>
             </Main>
             <FooterWrapper />
