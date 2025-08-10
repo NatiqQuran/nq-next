@@ -22,6 +22,7 @@ const Page = () => {
     const [isMorePopupVisible, setIsMorePopupVisible] =
         useState<boolean>(false);
 
+    const [currentSurah, setCurrentSurah] = useState(null);
     const [offset, setOffset] = useState(1);
     const [limit, setLimit] = useState(20);
     const [hasMore, setHasMore] = useState(true);
@@ -33,6 +34,7 @@ const Page = () => {
 
         const observer = new IntersectionObserver(
           (entries) => {
+            console.log(entries)
             if (entries[0].isIntersecting) {
               setOffset(offset)
               setLimit((prev) => prev + 5);
@@ -47,8 +49,6 @@ const Page = () => {
 
 
     const fetchItems = useCallback(async () => {
-        console.log(await getTranslations("hafs", "en"))
-        console.log(offset, limit)
         getAyahs(offset, limit).then(res => setAyahs(res));
         setHasMore(true);
     }, [limit]);
@@ -107,7 +107,7 @@ const Page = () => {
             )}
             {isMorePopupVisible && (
                 <MorePopup
-                    heading="Al-Fatihah"
+                    heading=""
                     onclosebuttonclick={() => setIsMorePopupVisible(false)}
                 />
             )}
