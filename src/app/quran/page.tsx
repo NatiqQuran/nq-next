@@ -21,7 +21,6 @@ const Page = () => {
     const [isMorePopupVisible, setIsMorePopupVisible] =
         useState<boolean>(false);
 
-    const [page, setPage] = useState(0);
     const [offset, setOffset] = useState(1);
     const [limit, setLimit] = useState(20);
     const [hasMore, setHasMore] = useState(true);
@@ -49,9 +48,6 @@ const Page = () => {
     const fetchItems = useCallback(async () => {
         console.log(offset, limit)
         getAyahs(offset, limit).then(res => setAyahs(res));
-        if (ayahs[ayahs.length - 1].number == 1){
-            setPage(prev => prev + 1)
-        }
         setHasMore(true);
     }, [limit]);
 
@@ -73,20 +69,23 @@ const Page = () => {
                         hizb={2}
                         onClick={() => setIsFindPopupVisible(true)}
                     />
-                    <Container size="sm" align="center">
-                        <Row>
-                            <SurahPeriodIcon variant="filled" period="makki" />
-                            <H2 title="Surah name" variant="heading6">
-                                1. Al-Fatihah
-                            </H2>
-                            <Spacer />
-                            <Text variant="heading6">5 Ayahs</Text>
-                        </Row>
-                        <P variant="body1">بسم الله الرحن الرحیم</P>
-                    </Container>
+                    
 
                     {ayahs?.map((ayah,index) => (
                             <>
+                                {ayah.number == 1 && <Container key={index} size="sm" align="center">
+                                    <Row>
+                                        <SurahPeriodIcon variant="filled" period="makki" />
+                                        <H2 title="Surah name" variant="heading6">
+                                            {ayah.surah.names[0].name}
+                                        </H2>
+                                        <Spacer />
+                                        <Text variant="heading6">{ayah.surah.number_of_ayahs} Ayahs</Text>
+                                    </Row>
+                                    <P variant="body1">{ayah.bismillah && ayah.bismillah.is_ayah ? ayah.text : ayah.bismillah?.text || "bismillah"}</P>
+                                </Container>
+                                }
+
                                 {/* {ayah.number == 1 && <PageDivider pagenumber={page}/>} */}
                                 <Ayah key={index} text={ayah.text} number={ayah.number} />
                             </>
