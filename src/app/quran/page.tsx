@@ -14,9 +14,10 @@ import FooterWrapper from "./footerWrappers";
 import AppBarWrapper from "./appBarWrapper";
 import { getAyahs } from "@/actions/getAyahs";
 import { AyahsListResponseData } from "@ntq/sdk";
-import { getTranslations } from "@/actions/getTranslations";
+import { useRouter } from "next/navigation";
 
 const Page = () => {
+    const router = useRouter();
     const [isFindPopupVisible, setIsFindPopupVisible] =
         useState<boolean>(false);
     const [isMorePopupVisible, setIsMorePopupVisible] =
@@ -89,7 +90,7 @@ const Page = () => {
                                 }
 
                                 {/* {ayah.number == 1 && <PageDivider pagenumber={page}/>} */}
-                                <Ayah key={index} text={ayah.text} number={ayah.number} />
+                                <Ayah key={index} text={ayah.text} number={ayah.number} id={`ayah-${ayah.uuid}`}/>
                             </>
                         ))
                     }
@@ -103,6 +104,11 @@ const Page = () => {
                 <FindPopup
                     heading="Find"
                     onclosebuttonclick={() => setIsFindPopupVisible(false)}
+                    onButtonClicked={(a) => {
+                        router.push(`#ayah-${ayahs[a].uuid}`)
+                        setIsFindPopupVisible(false)
+                    }}
+                    ayahs_numbers={[1,2,3,4,5]}
                 />
             )}
             {isMorePopupVisible && (
