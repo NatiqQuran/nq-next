@@ -104,7 +104,7 @@ export const Ayah = forwardRef<HTMLDivElement, AyahProps>(
                     </P>
                 </div>
                 <div>
-                    <P variant="body4">Translation text{` (${number})`}</P>
+                    <P variant="body4">-</P>
                 </div>
             </Card>
         );

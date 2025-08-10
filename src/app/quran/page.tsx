@@ -14,6 +14,7 @@ import FooterWrapper from "./footerWrappers";
 import AppBarWrapper from "./appBarWrapper";
 import { getAyahs } from "@/actions/getAyahs";
 import { AyahsListResponseData } from "@ntq/sdk";
+import { getTranslations } from "@/actions/getTranslations";
 
 const Page = () => {
     const [isFindPopupVisible, setIsFindPopupVisible] =
@@ -46,6 +47,7 @@ const Page = () => {
 
 
     const fetchItems = useCallback(async () => {
+        console.log(await getTranslations("hafs", "en"))
         console.log(offset, limit)
         getAyahs(offset, limit).then(res => setAyahs(res));
         setHasMore(true);
