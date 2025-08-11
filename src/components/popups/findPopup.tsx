@@ -9,8 +9,13 @@ import {
     Text,
 } from "@yakad/ui";
 
-export const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
-    ({ ...restProps }, ref) => (
+interface FindPopupProps extends PopupProps {
+    ayahs_numbers: number[],
+    onButtonClicked: (ayah_num: number) => void;
+}
+
+export const FindPopup = forwardRef<HTMLDivElement, FindPopupProps>(
+    ({ ayahs_numbers,onButtonClicked,  ...restProps }, ref) => (
         <Popup ref={ref} {...restProps}>
             <Text variant="heading5">By Surah</Text>
             <Row>
@@ -18,7 +23,7 @@ export const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
                     <option value="uuid">1. Al-Fatihah</option>
                 </Select>
                 <Select placeholder="Ayah">
-                    <option value={1}>1</option>
+                    {ayahs_numbers.map(num =><option value={num}>{num}</option>)}
                 </Select>
             </Row>
             <Text variant="heading5">By Juz/Hizb/Ruku</Text>
@@ -38,7 +43,7 @@ export const FindPopup = forwardRef<HTMLDivElement, PopupProps>(
                 <InputField placeholder="Page" defaultValue={1} />
             </Row>
             <Row align="center">
-                <Button variant="filled">Find</Button>
+                <Button variant="filled" onClick={() => onButtonClicked(5)}>Find</Button>
             </Row>
         </Popup>
     )
