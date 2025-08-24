@@ -26,7 +26,7 @@ const Page = () => {
                 </Row>
             </Container>
 
-            <Container size="sm">
+            <Container size="sm" align="center">
                 <Select
                     name="darkStyle"
                     placeholder="Theme"
@@ -71,9 +71,7 @@ const Page = () => {
                     <option value="ar">Arabic</option>
                     <option value="fa">Persian</option>
                 </Select>
-                <Row align="center">
-                    <ResetButton />
-                </Row>
+                <ResetButton />
             </Container>
         </>
     );

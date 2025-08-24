@@ -1,16 +1,9 @@
 import { forwardRef } from "react";
-import {
-    CheckBox,
-    Popup,
-    PopupProps,
-    Row,
-    Select,
-    Spacer,
-    Text,
-} from "@yakad/ui";
+import { CheckBox, Row, Select, Spacer, Text } from "@yakad/ui";
+import { Xpopup, XpopupProps } from "@yakad/x";
 import { useStorage } from "@/contexts/storageContext";
 
-export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
+export const PlayOptionsPopup = forwardRef<HTMLDivElement, XpopupProps>(
     ({ ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
         const handleSelectChange = (
@@ -39,8 +32,10 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
             }));
         };
 
+        const isContinuousMode = storage.options.limitMode === "continuous";
+
         return (
-            <Popup ref={ref} {...restProps}>
+            <Xpopup ref={ref} {...restProps}>
                 <Row>
                     <Text variant="heading5">Recite</Text>
                     <Spacer />
@@ -131,60 +126,49 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                         <option value="page">Page</option>
                         <option value="time">Time</option>
                     </Select>
-                    <Select
-                        title="Limit range"
-                        placeholder="Limit Range"
-                        name="limitRange"
-                        value={storage.options.limitRange}
-                        onChange={handleSelectChange}
-                        disabled={storage.options.limitMode === "continuous"}
-                    >
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
-                    </Select>
-                    <Select
-                        title="Range Repeat"
-                        placeholder="Range Repeat"
-                        name="limitRepeat"
-                        value={storage.options.limitRepeat}
-                        onChange={handleSelectChange}
-                        disabled={storage.options.limitMode === "continuous"}
-                    >
-                        <option value={0}>Off</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
-                        <option value="infinite">Forever</option>
-                    </Select>
+                    {!isContinuousMode && (
+                        <Select
+                            title="Limit range"
+                            placeholder="Limit Range"
+                            name="limitRange"
+                            value={storage.options.limitRange}
+                            onChange={handleSelectChange}
+                        >
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                        </Select>
+                    )}
+                    {!isContinuousMode && (
+                        <Select
+                            title="Range Repeat"
+                            placeholder="Range Repeat"
+                            name="limitRepeat"
+                            value={storage.options.limitRepeat}
+                            onChange={handleSelectChange}
+                        >
+                            <option value={0}>Off</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value="infinite">Forever</option>
+                        </Select>
+                    )}
                 </Row>
-                <Row>
-                    <Text variant="heading5">Translate</Text>
-                    <Spacer />
-                    <CheckBox
-                        title="Translate play status"
-                        name="announcationStatus"
-                        checked={storage.options.announcationStatus}
-                        onChange={handleCheckBoxChange}
-                    />
-                </Row>
-                <Select title="Announcer" placeholder="Announcer" disabled>
-                    <option value="">Mr x</option>
-                </Select>
                 <Text variant="heading5">Auto scroll</Text>
                 <CheckBox
                     label="Auto scroll"
@@ -192,7 +176,7 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                     checked={storage.options.autoScroll}
                     onChange={handleCheckBoxChange}
                 />
-            </Popup>
+            </Xpopup>
         );
     }
 );

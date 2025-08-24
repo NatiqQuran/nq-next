@@ -1,9 +1,10 @@
 import { forwardRef } from "react";
-import { Row, Select, Text, PopupProps, Popup } from "@yakad/ui";
+import { Row, Select, Text, GridContainer, GridItem } from "@yakad/ui";
+import { Xpopup, XpopupProps } from "@yakad/x";
 import { DarkStyleButton, ColorButton } from "@/components";
 import { useStorage } from "@/contexts/storageContext";
 
-export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
+export const MushafOptionsPopup = forwardRef<HTMLDivElement, XpopupProps>(
     ({ ...restProps }, ref) => {
         const { storage, setStorage } = useStorage();
         const handleSelectChange = (
@@ -21,7 +22,7 @@ export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
         };
 
         return (
-            <Popup ref={ref} {...restProps}>
+            <Xpopup ref={ref} {...restProps}>
                 <Text variant="heading5">Arabic Text</Text>
                 <Row>
                     <Select
@@ -47,23 +48,28 @@ export const MushafOptionsPopup = forwardRef<HTMLDivElement, PopupProps>(
                 <Select placeholder="Translation" disabled>
                     {/* OPTIONS */}
                 </Select>
-                <Text variant="heading5">By word</Text>
-                <Select placeholder="Translation" disabled>
-                    <option value="uuid">Mr unknown</option>
-                </Select>
                 <Text variant="heading5">Theme</Text>
-                <Row
-                    align="center"
-                    style={{ justifyContent: "space-evenly", flexWrap: "wrap" }}
-                >
-                    <DarkStyleButton
-                        variant="filled"
-                        style={{ width: "14rem" }}
-                    />
-                    <ColorButton variant="filled" style={{ width: "14rem" }} />
-                    <ColorButton variant="filled" style={{ width: "14rem" }} />
-                </Row>
-            </Popup>
+                <GridContainer columns={3}>
+                    <GridItem>
+                        <DarkStyleButton
+                            variant="filled"
+                            style={{ width: "100%" }}
+                        />
+                    </GridItem>
+                    <GridItem>
+                        <ColorButton
+                            variant="filled"
+                            style={{ width: "100%" }}
+                        />
+                    </GridItem>
+                    <GridItem>
+                        <ColorButton
+                            variant="filled"
+                            style={{ width: "100%" }}
+                        />
+                    </GridItem>
+                </GridContainer>
+            </Xpopup>
         );
     }
 );
