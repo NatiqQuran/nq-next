@@ -32,6 +32,8 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, XpopupProps>(
             }));
         };
 
+        const isContinuousMode = storage.options.limitMode === "continuous";
+
         return (
             <Xpopup ref={ref} {...restProps}>
                 <Row>
@@ -124,46 +126,48 @@ export const PlayOptionsPopup = forwardRef<HTMLDivElement, XpopupProps>(
                         <option value="page">Page</option>
                         <option value="time">Time</option>
                     </Select>
-                    <Select
-                        title="Limit range"
-                        placeholder="Limit Range"
-                        name="limitRange"
-                        value={storage.options.limitRange}
-                        onChange={handleSelectChange}
-                        disabled={storage.options.limitMode === "continuous"}
-                    >
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
-                    </Select>
-                    <Select
-                        title="Range Repeat"
-                        placeholder="Range Repeat"
-                        name="limitRepeat"
-                        value={storage.options.limitRepeat}
-                        onChange={handleSelectChange}
-                        disabled={storage.options.limitMode === "continuous"}
-                    >
-                        <option value={0}>Off</option>
-                        <option value={1}>1</option>
-                        <option value={2}>2</option>
-                        <option value={3}>3</option>
-                        <option value={4}>4</option>
-                        <option value={5}>5</option>
-                        <option value={6}>6</option>
-                        <option value={7}>7</option>
-                        <option value={8}>8</option>
-                        <option value={9}>9</option>
-                        <option value={10}>10</option>
-                        <option value="infinite">Forever</option>
-                    </Select>
+                    {!isContinuousMode && (
+                        <Select
+                            title="Limit range"
+                            placeholder="Limit Range"
+                            name="limitRange"
+                            value={storage.options.limitRange}
+                            onChange={handleSelectChange}
+                        >
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                        </Select>
+                    )}
+                    {!isContinuousMode && (
+                        <Select
+                            title="Range Repeat"
+                            placeholder="Range Repeat"
+                            name="limitRepeat"
+                            value={storage.options.limitRepeat}
+                            onChange={handleSelectChange}
+                        >
+                            <option value={0}>Off</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value="infinite">Forever</option>
+                        </Select>
+                    )}
                 </Row>
                 <Text variant="heading5">Auto scroll</Text>
                 <CheckBox
