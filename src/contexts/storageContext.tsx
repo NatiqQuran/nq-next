@@ -40,7 +40,6 @@ interface Options {
         | "time";
     limitRange: number;
     limitRepeat: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | "infinite"; //times
-    announcationStatus: boolean;
     autoScroll: boolean;
 }
 interface Selected {
@@ -49,7 +48,6 @@ interface Selected {
     translationUUID: string;
     translationByWordUUID: string;
     recitationUUID: string;
-    announcationUUID: string;
 }
 // ----- 2. Combined Storage type -----
 interface Storage {
@@ -80,7 +78,6 @@ const defaultStorage: Storage = {
         limitMode: "continuous",
         limitRange: 1,
         limitRepeat: 0,
-        announcationStatus: false,
         autoScroll: true,
     },
     selected: {
@@ -89,7 +86,6 @@ const defaultStorage: Storage = {
         translationUUID: "UUID",
         translationByWordUUID: "UUID",
         recitationUUID: "UUID",
-        announcationUUID: "UUID",
     },
 };
 

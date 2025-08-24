@@ -1,29 +1,24 @@
 import { forwardRef } from "react";
-import {
-    Button,
-    InputField,
-    Popup,
-    PopupProps,
-    Row,
-    Select,
-    Text,
-} from "@yakad/ui";
+import { Button, InputField, Row, Select, Text } from "@yakad/ui";
+import { Xpopup, XpopupProps } from "@yakad/x";
 
-interface FindPopupProps extends PopupProps {
-    ayahs_numbers: number[],
+interface FindPopupProps extends XpopupProps {
+    ayahs_numbers: number[];
     onButtonClicked: (ayah_num: number) => void;
 }
 
 export const FindPopup = forwardRef<HTMLDivElement, FindPopupProps>(
-    ({ ayahs_numbers,onButtonClicked,  ...restProps }, ref) => (
-        <Popup ref={ref} {...restProps}>
+    ({ ayahs_numbers, onButtonClicked, ...restProps }, ref) => (
+        <Xpopup ref={ref} {...restProps}>
             <Text variant="heading5">By Surah</Text>
             <Row>
                 <Select placeholder="Surah">
                     <option value="uuid">1. Al-Fatihah</option>
                 </Select>
                 <Select placeholder="Ayah">
-                    {ayahs_numbers.map(num =><option value={num}>{num}</option>)}
+                    {ayahs_numbers.map((num) => (
+                        <option value={num}>{num}</option>
+                    ))}
                 </Select>
             </Row>
             <Text variant="heading5">By Juz/Hizb/Ruku</Text>
@@ -43,9 +38,11 @@ export const FindPopup = forwardRef<HTMLDivElement, FindPopupProps>(
                 <InputField placeholder="Page" defaultValue={1} />
             </Row>
             <Row align="center">
-                <Button variant="filled" onClick={() => onButtonClicked(5)}>Find</Button>
+                <Button variant="filled" onClick={() => onButtonClicked(5)}>
+                    Find
+                </Button>
             </Row>
-        </Popup>
+        </Xpopup>
     )
 );
 FindPopup.displayName = "FindPopup";

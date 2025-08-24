@@ -9,7 +9,6 @@ const AppBarWrapper = ({
     position = "scroll",
     size = "md",
     blur = true,
-    style,
     ...restProps
 }: Omit<AppBarProps, "children">) => {
     const [isMushafOptionsPopupVisible, setIsMushafOptionsPopupVisible] =
@@ -17,16 +16,7 @@ const AppBarWrapper = ({
 
     return (
         <>
-            <AppBar
-                {...restProps}
-                position={position}
-                size={size}
-                blur={blur}
-                style={{
-                    ...style,
-                    flexWrap: "nowrap",
-                }}
-            >
+            <AppBar {...restProps} position={position} size={size} blur={blur}>
                 <GoBackButton
                     title="Go back"
                     icon={<Symbol icon="arrow_back" />}
