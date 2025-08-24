@@ -20,12 +20,8 @@ const Page = () => {
     return (
         <>
             <Container size="md">
-                <Row>
-                    <H1 variant="heading3">Settings</H1>
-                    <Spacer />
-                </Row>
+                <H1 variant="heading3">Settings</H1>
             </Container>
-
             <Container size="sm" align="center">
                 <Select
                     name="darkStyle"
