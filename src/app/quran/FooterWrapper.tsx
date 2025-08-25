@@ -22,7 +22,6 @@ const FooterWrapper = ({
                     borderTop:
                         "0.3rem solid rgb(var(--primaryColor,11 87 208))",
                     minHeight: "7rem",
-                    justifyContent: "space-evenly",
                     ...style,
                 }}
                 {...restProps}

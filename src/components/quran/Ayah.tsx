@@ -4,7 +4,7 @@ import { forwardRef, useRef, useState } from "react";
 import classNames from "classnames";
 import { Sajdah } from "@ntq/sdk";
 import { Card, CardProps, P } from "@yakad/ui";
-import styles from "./ayah.module.css";
+import styles from "./Ayah.module.css";
 
 interface AyahProps extends CardProps {
     number: number;
@@ -98,7 +98,9 @@ export const Ayah = forwardRef<HTMLDivElement, AyahProps>(
                 <div style={{ direction: "rtl", textAlign: "right" }}>
                     <P variant="body2">
                         {/* TODO:‌ This doens't seem ok */}
-                        {text.split(" ").map((word,index) => <span key={index}>{`${word} `}</span>)}
+                        {text.split(" ").map((word, index) => (
+                            <span key={index}>{`${word} `}</span>
+                        ))}
                         <SajdahIcon sajdah={sajdah} />
                         <AyahNumber number={number} />
                     </P>

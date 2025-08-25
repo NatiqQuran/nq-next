@@ -1,8 +1,8 @@
 import { Container, H1 } from "@yakad/ui";
-import VerseOfTheDaySection from "./sectionVerseOfTheDay";
-import RecomendedSection from "./sectionRecommended";
-import RandomSection from "./sectionRandom";
-import ListsSection from "./sectionLists";
+import VerseOfTheDaySection from "./VerseOfTheDaySection";
+import RecomendedSection from "./RecommendedSection";
+import RandomSection from "./RandomSection";
+import ListsSection from "./ListsSection";
 
 const Page = () => {
     return (
