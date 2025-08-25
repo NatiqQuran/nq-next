@@ -1,13 +1,14 @@
 import { forwardRef } from "react";
+import { LangCodeType, langName } from "@yakad/lib";
 import { Card, CardProps, Text } from "@yakad/ui";
 
-interface TranslateCardProps extends Omit<CardProps, "children"> {
+interface TranslationCardProps extends Omit<CardProps, "children"> {
     translatorname: string;
-    language: string;
+    langCode: LangCodeType;
 }
 
-export const TranslateCard = forwardRef<HTMLDivElement, TranslateCardProps>(
-    ({ translatorname, language, style, ...restProps }, ref) => {
+export const TranslationCard = forwardRef<HTMLDivElement, TranslationCardProps>(
+    ({ translatorname, langCode, style, ...restProps }, ref) => {
         return (
             <Card
                 ref={ref}
@@ -16,15 +17,14 @@ export const TranslateCard = forwardRef<HTMLDivElement, TranslateCardProps>(
                 style={{
                     width: "19rem",
                     minHeight: "19rem",
-                    justifyContent: "space-evenly",
                     ...style,
                 }}
                 {...restProps}
             >
                 <Text variant="heading3">{translatorname}</Text>
-                <Text>{language}</Text>
+                <Text>{langName(langCode)}</Text>
             </Card>
         );
     }
 );
-TranslateCard.displayName = "TranslateCard";
+TranslationCard.displayName = "TranslationCard";

@@ -30,7 +30,6 @@ export const SurahCard = forwardRef<HTMLDivElement, SurahCardProps>(
                 style={{
                     width: "19rem",
                     minHeight: "19rem",
-                    justifyContent: "space-evenly",
                     ...style,
                 }}
                 {...restProps}

@@ -20,8 +20,8 @@ import {
     PageDivider,
     SurahPeriodIcon,
 } from "@/components";
-import FooterWrapper from "./wrapperFooter";
-import AppBarWrapper from "./wrapperAppBar";
+import FooterWrapper from "./FooterWrapper";
+import AppBarWrapper from "./AppBarWrapper";
 import { getAyahs } from "@/actions/getAyahs";
 import { AyahsListResponseData } from "@ntq/sdk";
 import { useRouter } from "next/navigation";

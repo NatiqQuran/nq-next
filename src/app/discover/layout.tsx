@@ -3,7 +3,7 @@
 import { Container, Main, Screen } from "@yakad/ui";
 import { useStorage } from "@/contexts/storageContext";
 import { PlayBox } from "@/components";
-import FooterWrapper from "./wrapperFooter";
+import FooterWrapper from "./FooterWrapper";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const { storage } = useStorage();

@@ -1,6 +1,6 @@
 import { Container, H1 } from "@yakad/ui";
-import RecitersSection from "./sectionReciters";
-import TranslatesSection from "./sectionTranslates";
+import RecitersSection from "./RecitersSection";
+import TranslationsSection from "./TranslationsSection";
 
 const Page = () => {
     return (
@@ -9,7 +9,7 @@ const Page = () => {
                 <H1 variant="heading3">Library</H1>
             </Container>
             <RecitersSection />
-            <TranslatesSection />
+            <TranslationsSection />
         </>
     );
 };

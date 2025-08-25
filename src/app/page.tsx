@@ -2,9 +2,9 @@
 
 import { Main, Screen } from "@yakad/ui";
 import { Xbackground } from "@yakad/x";
-import AppBarWrapper from "./wrapperAppBar";
-import XgetStartWrapper from "./wrapperXgetStart";
-import FooterWrapper from "./wrapperFooter";
+import AppBarWrapper from "./AppBarWrapper";
+import XgetStartWrapper from "./XgetStartWrapper";
+import FooterWrapper from "./FooterWrapper";
 
 const Page = () => (
     <Screen>

@@ -1,21 +1,25 @@
-export * from "./buttons/colorButton";
-export * from "./buttons/darkStyleButton";
-export * from "./buttons/goBackButton";
-export * from "./buttons/goToSurahButton";
-export * from "./buttons/lastReadingButton";
-export * from "./buttons/playButton";
-export * from "./buttons/randomSurahButton";
-export * from "./buttons/resetButton";
+export * from "./buttons/ColorButton";
+export * from "./buttons/DarkStyleButton";
+export * from "./buttons/GoBackButton";
+export * from "./buttons/GoToSurahButton";
+export * from "./buttons/LastReadingButton";
+export * from "./buttons/PlayButton";
+export * from "./buttons/RandomSurahButton";
+export * from "./buttons/ResetButton";
 
-export * from "./popups/findPopup";
-export * from "./popups/morePopup";
-export * from "./popups/mushafOptionsPopup";
-export * from "./popups/playOptionsPopup";
+export * from "./popups/FindPopup";
+export * from "./popups/MorePopup";
+export * from "./popups/MushafOptionsPopup";
+export * from "./popups/PlayOptionsPopup";
 
-export * from "./quran/ayah";
-export * from "./quran/findBar";
-export * from "./quran/pageDivider";
+export * from "./quran/Ayah";
+export * from "./quran/FindBar";
+export * from "./quran/PageDivider";
 
-export * from "./audio";
-export * from "./playBox";
-export * from "./surahPeriodIcon";
+export * from "./cards/ReciterCard";
+export * from "./cards/SurahCard";
+export * from "./cards/TranslationCard";
+
+export * from "./Audio";
+export * from "./PlayBox";
+export * from "./SurahPeriodIcon";

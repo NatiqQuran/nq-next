@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { Button, Container, H2 } from "@yakad/ui";
 import { XScrollContainer } from "@yakad/x";
-import { LastReadingButton } from "@/components";
-import { SurahCard } from "@/components/cards/surahCard";
+import { LastReadingButton, SurahCard } from "@/components";
 
 const RecomendedSection = () => (
     <>

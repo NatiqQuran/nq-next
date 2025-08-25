@@ -2,27 +2,27 @@ import Link from "next/link";
 import { Button, Container, H4 } from "@yakad/ui";
 import { XScrollContainer } from "@yakad/x";
 import Symbol from "@yakad/symbols";
-import { TranslateCard } from "@/components/cards/translateCard";
+import { ReciterCard } from "@/components";
 
-const TranslatesSection = () => (
+const RecitersSection = () => (
     <>
         <Container size="md">
-            <Link href="/discover/library/translations">
+            <Link href="/discover/library/reciters">
                 <H4>
-                    Translates <Symbol icon="keyboard_arrow_right" />
+                    Reciters <Symbol icon="keyboard_arrow_right" />
                 </H4>
             </Link>
         </Container>
         <XScrollContainer size="md">
             {Array.from({ length: 10 }, (_, index) => (
-                <Link key={index} href="/discover/library/translations/UUID">
-                    <TranslateCard
-                        translatorname={`name ${index}`}
-                        language="English"
+                <Link key={index} href="/discover/library/reciters/UUID">
+                    <ReciterCard
+                        imagesrc="/images/no_image_available.jpg"
+                        recitername={`Name ${index + 1}`}
                     />
                 </Link>
             ))}
-            <Link href="/discover/library/translations">
+            <Link href="/discover/library/reciters">
                 <Button
                     variant="fab"
                     iconposition="end"
@@ -35,4 +35,4 @@ const TranslatesSection = () => (
     </>
 );
 
-export default TranslatesSection;
+export default RecitersSection;
